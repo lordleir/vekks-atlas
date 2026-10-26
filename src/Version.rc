@@ -1,0 +1,64 @@
+#include <windows.h>
+1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEFLAGSMASK 0x3fL
+FILEFLAGS 0
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_DLL
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "Vekk's Atlas - Nexus map markers\0"
+            VALUE "FileVersion", "1.0.0.0\0"
+            VALUE "ProductName", "Vekk's Atlas\0"
+            VALUE "CompanyName", "Leir.6218\0"
+            VALUE "Comments", "AI Notice: developed by Leir.6218 with AI assistance.\0"
+            VALUE "ProductVersion", "1.0.0.0\0"
+            VALUE "OriginalFilename", "VekksAtlas.dll\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
+101 RCDATA "../external/imgui/LICENSE.txt"
+102 RCDATA "../external/Nexus-API-LICENSE.txt"
+103 RCDATA "../external/nlohmann/LICENSE.MIT"
+104 RCDATA "../external/Mumble-LICENSE.txt"
+105 RCDATA "../external/RTAPI-LICENSE.txt"
+109 RCDATA "../assets/maps-es.json"
+110 RCDATA "../assets/maps-en.json"
+111 RCDATA "../assets/maps-de.json"
+201 PNG "../assets/icons/128/casa.png"
+202 PNG "../assets/icons/128/espadas.png"
+203 PNG "../assets/icons/128/pico.png"
+204 PNG "../assets/icons/128/mision.png"
+205 PNG "../assets/icons/128/estrella.png"
+206 PNG "../assets/icons/128/cofre.png"
+207 PNG "../assets/icons/128/bandera.png"
+208 PNG "../assets/icons/128/check.png"
+209 PNG "../assets/icons/128/wvw_portal.png"
+210 PNG "../assets/icons/128/wvw_arrow_cart.png"
+211 PNG "../assets/icons/128/wvw_catapult.png"
+212 PNG "../assets/icons/128/wvw_trebuchet.png"
+213 PNG "../assets/icons/128/wvw_ariete.png"
+214 PNG "../assets/icons/128/wvw_shield_generator.png"
+301 PNG "../assets/icons/64/casa.png"
+302 PNG "../assets/icons/64/espadas.png"
+303 PNG "../assets/icons/64/pico.png"
+304 PNG "../assets/icons/64/mision.png"
+305 PNG "../assets/icons/64/estrella.png"
+306 PNG "../assets/icons/64/cofre.png"
+307 PNG "../assets/icons/64/bandera.png"
+308 PNG "../assets/icons/64/check.png"
+309 PNG "../assets/icons/64/wvw_portal.png"
+310 PNG "../assets/icons/64/wvw_arrow_cart.png"
+311 PNG "../assets/icons/64/wvw_catapult.png"
+312 PNG "../assets/icons/64/wvw_trebuchet.png"
+313 PNG "../assets/icons/64/wvw_ariete.png"
+314 PNG "../assets/icons/64/wvw_shield_generator.png"
+401 PNG "../assets/ui/atlas_launcher.png"
