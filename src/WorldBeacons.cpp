@@ -215,7 +215,7 @@ namespace cmm
             float distance{},beamAlpha{},annotationAlpha{},phase{};
         };
 
-        void Annotation(ImDrawList* draw,const Projection& p,const PreparedBeacon& b,const WorldBeaconStyle& style)
+        void Annotation(ImDrawList* draw,const Projection& p,const PreparedBeacon& b,const WorldBeaconStyle& style,std::string* hoveredMarker)
         {
             const auto anchor=p.View({b.base.x,b.base.y+.5f,b.base.z});
             if (!p.Visible(anchor) || !VertexRoom(draw,1500)) return;
@@ -229,6 +229,12 @@ namespace cmm
             const float textScale=scale*std::clamp(style.textScale,.7f,1.6f)*(.72f+.28f*perspective);
             const float side=(14.0f+42.0f*perspective)*iconScale;
             const float lift=(3.0f+4.0f*perspective)*iconScale;
+            const auto pick=[&](ImVec2 lo,ImVec2 hi)
+            {
+                const auto mouse=ImGui::GetIO().MousePos;
+                if (hoveredMarker && !b.marker->id.empty() && mouse.x>=lo.x && mouse.x<=hi.x && mouse.y>=lo.y && mouse.y<=hi.y)
+                { *hoveredMarker=b.marker->id; draw->AddRect(lo,hi,IM_COL32(255,120,80,255),2*scale,0,2*scale); }
+            };
             float labelBottom=ground.y-lift;
             if (style.showIcons && b.marker->icon)
             {
@@ -238,6 +244,7 @@ namespace cmm
                 draw->AddImage(b.marker->icon,{lo.x+2*iconScale,lo.y+2*iconScale},{hi.x+2*iconScale,hi.y+2*iconScale},
                     {0,0},{1,1},WithAlpha(IM_COL32_BLACK,190*b.annotationAlpha*style.iconOpacity));
                 draw->AddImage(b.marker->icon,lo,hi,{0,0},{1,1},WithAlpha(IM_COL32_WHITE,255*b.annotationAlpha*style.iconOpacity));
+                pick(lo,hi);
                 labelBottom=lo.y-4*textScale;
             }
             const bool showName=style.showNames && !b.marker->name.empty();
@@ -272,6 +279,7 @@ namespace cmm
             const std::string fullLabel=label+separator+distanceText;
             size=font->CalcTextSizeA(fontSize,10000,0,fullLabel.c_str());
             const ImVec2 text{ground.x-size.x*.5f,labelBottom-size.y};
+            pick({text.x-5*textScale,text.y-3*textScale},{text.x+size.x+5*textScale,labelBottom+3*textScale});
             const float backgroundOpacity=std::max(showName ? style.nameOpacity : 0.0f,
                 style.showDistance ? style.distanceOpacity : 0.0f);
             draw->AddRectFilled({text.x-5*textScale,text.y-3*textScale},{text.x+size.x+5*textScale,labelBottom+3*textScale},
@@ -307,7 +315,7 @@ namespace cmm
     }
 
     std::size_t DrawWorldBeacons(ImDrawList* draw,const WorldBeaconCamera& camera,const WorldMapReference& reference,
-        const std::vector<WorldBeacon>& beacons,const WorldBeaconStyle& style)
+        const std::vector<WorldBeacon>& beacons,const WorldBeaconStyle& style,std::string* hoveredMarker)
     {
         if (!draw || beacons.empty() || !Finite(style.opacity) || style.opacity<=0 ||
             !Finite(style.maxDistance) || style.maxDistance<25 || !Finite(style.uiScale) || style.uiScale<=0) return 0;
@@ -408,9 +416,76 @@ namespace cmm
             }
             if (draw->VtxBuffer.Size>before) ++drawn;
         }
-        for (const auto& b:prepared) Annotation(draw,p,b,style);
+        for (const auto& b:prepared) Annotation(draw,p,b,style,hoveredMarker);
         draw->PopTextureID();
         draw->PopClipRect();
         return drawn;
+    }
+
+    std::string DrawRaidPaths(ImDrawList* draw,const WorldBeaconCamera& camera,const std::vector<RaidPath>& paths,
+        std::string_view character,uint32_t mapId,float maxDistance,float scale,bool picking)
+    {
+        Projection p;
+        if (!draw || !BuildProjection(camera,p) || !Finite(maxDistance) || maxDistance<=0) return {};
+        std::string hovered; float closest=64*scale*scale;
+        const auto mouse=ImGui::GetIO().MousePos;
+        unsigned segments=0;
+        const auto pointAt=[](WorldVec3 a,WorldVec3 b,float t) { return WorldVec3{a.x+(b.x-a.x)*t,a.y+(b.y-a.y)*t+.12f,a.z+(b.z-a.z)*t}; };
+        draw->PushClipRect({0,0},camera.displaySize,true);
+        for (const auto& path:paths)
+        {
+            if (!path.visible || path.mapId!=mapId || path.character!=character) continue;
+            float arc=0;
+            for (size_t i=1;i<path.points.size();++i)
+            {
+                const auto a=path.points[i-1],b=path.points[i];
+                const auto delta=Subtract(b,a); const float length=std::sqrt(Dot(delta,delta));
+                if (!Finite(length) || length<.001f || length>30) continue;
+                const auto ra=Subtract(a,camera.avatarPosition),rb=Subtract(b,camera.avatarPosition);
+                if (std::min(Dot(ra,ra),Dot(rb,rb))>maxDistance*maxDistance) { arc+=length; continue; }
+                bool hit=false;
+                if (picking)
+                {
+                    Vertex va{p.View(pointAt(a,b,0)),0},vb{p.View(pointAt(a,b,1)),0}; bool clipped=false;
+                    for (int plane=0;plane<5;++plane)
+                    {
+                        float da=p.Plane(va.view,plane),db=p.Plane(vb.view,plane);
+                        if (da<0 && db<0) { clipped=true; break; }
+                        if ((da<0)!=(db<0)) { auto v=Lerp(va,vb,da/(da-db)); if (da<0) va=v; else vb=v; }
+                    }
+                    if (!clipped)
+                    {
+                        const auto sa=p.Screen(va.view),sb=p.Screen(vb.view);
+                        const float dx=sb.x-sa.x,dy=sb.y-sa.y;
+                        const float t=std::clamp(((mouse.x-sa.x)*dx+(mouse.y-sa.y)*dy)/std::max(.001f,dx*dx+dy*dy),0.f,1.f);
+                        const float ex=mouse.x-sa.x-t*dx,ey=mouse.y-sa.y-t*dy,dist=ex*ex+ey*ey;
+                        if (dist<closest) { closest=dist; hovered=path.id; hit=true; }
+                    }
+                }
+                for (float walked=0;walked<length && segments<4000;)
+                {
+                    const float phase=std::fmod(arc+walked,1.5f);
+                    const bool ink=phase<.9f;
+                    const float end=std::min(length,walked+std::max(.001f,(ink?.9f:1.5f)-phase));
+                    if (ink) { WorldLine(draw,p,pointAt(a,b,walked/length),pointAt(a,b,end/length),
+                        hit?IM_COL32(255,120,80,255):path.color,(hit?4.f:2.4f)*scale); ++segments; }
+                    walked=end;
+                }
+                for (float at=std::ceil((arc+.001f)/5.f)*5.f;at<=arc+length && segments<4000;at+=5.f)
+                {
+                    const auto tip=pointAt(a,b,(at-arc)/length);
+                    WorldVec3 direction=delta; Normalize(direction);
+                    WorldVec3 side=Cross({0,1,0},direction); if (!Normalize(side)) continue;
+                    for (float sign:{-1.f,1.f})
+                    { WorldVec3 tail{tip.x-direction.x*.8f+side.x*.45f*sign,tip.y-direction.y*.8f,tip.z-direction.z*.8f+side.z*.45f*sign};
+                      WorldLine(draw,p,tip,tail,path.color,2.7f*scale); ++segments; }
+                }
+                arc+=length;
+                if (segments>=4000 || !VertexRoom(draw,64)) break;
+            }
+            if (segments>=4000 || !VertexRoom(draw,64)) break;
+        }
+        draw->PopClipRect();
+        return hovered;
     }
 }

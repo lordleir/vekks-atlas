@@ -11,6 +11,7 @@
 #include <nlohmann/json.hpp>
 #include "AdvancedPlacement.h"
 #include "CompetitiveCoordinates.h"
+#include "RaidMode.h"
 #include "AtlasModel.h"
 #include "MarkerLink.h"
 #include "AtlasClipboard.h"
@@ -156,6 +157,9 @@ namespace cmm
     size_t WorldBeaconCandidates = 0;
     size_t WorldBeaconsDrawn = 0;
     WorldReferenceTracker BeaconReference;
+    RaidMode RaidTools;
+    std::atomic<bool> PendingRaidToggle{false};
+    std::string HoveredRaidMarker;
     std::atomic<RTAPI::RealTimeData*> RealTimeApi{nullptr};
     std::atomic<bool> PendingAdvancedPlacement{false};
     std::atomic<bool> PendingSettingsToggle{false};
@@ -169,9 +173,10 @@ namespace cmm
     std::string AdvancedStatus;
     std::string ShortcutMessage;
 
-    constexpr std::array<const char*, 14> IconNames{
+    constexpr std::array<const char*, 18> IconNames{
         "House", "Swords", "Pickaxe", "Mission", "Star", "Chest", "Flag", "Check",
-        "Portal", "Arrow Cart", "Catapult", "Trebuchet", "Flame Ram", "Shield Generator"};
+        "Portal", "Arrow Cart", "Catapult", "Trebuchet", "Flame Ram", "Shield Generator",
+        "Support", "Damage", "Tank", "Heal"};
     HMODULE Module = nullptr;
     Texture_t* LauncherTexture = nullptr;
     constexpr const char* LauncherTextureId = "VEKKS_ATLAS_152_LAUNCHER_COMPASS";
@@ -179,18 +184,20 @@ namespace cmm
     constexpr const char* QuickAccessBindId = "VEKKS_ATLAS_OPEN_SETTINGS_INTERNAL";
     bool QuickAccessBindRegistered = false;
     bool QuickAccessRegistered = false;
-    std::array<Texture_t*, 14> IconTextures128{}; // owned by Nexus
-    std::array<Texture_t*, 14> IconTextures64{};
-    constexpr std::array<const char*, 14> TextureIds128{
+    std::array<Texture_t*, 18> IconTextures128{}; // owned by Nexus
+    std::array<Texture_t*, 18> IconTextures64{};
+    constexpr std::array<const char*, 18> TextureIds128{
         "VEKKS_ATLAS_113_HOUSE_128", "VEKKS_ATLAS_113_SWORDS_128", "VEKKS_ATLAS_113_PICKAXE_128", "VEKKS_ATLAS_113_MISSION_128",
         "VEKKS_ATLAS_113_STAR_128", "VEKKS_ATLAS_113_CHEST_128", "VEKKS_ATLAS_113_FLAG_128", "VEKKS_ATLAS_113_CHECK_128",
         "VEKKS_ATLAS_140_PORTAL_128", "VEKKS_ATLAS_140_ARROW_CART_128", "VEKKS_ATLAS_140_CATAPULT_128",
-        "VEKKS_ATLAS_140_TREBUCHET_128", "VEKKS_ATLAS_140_FLAME_RAM_128", "VEKKS_ATLAS_140_SHIELD_GENERATOR_128"};
-    constexpr std::array<const char*, 14> TextureIds64{
+        "VEKKS_ATLAS_140_TREBUCHET_128", "VEKKS_ATLAS_140_FLAME_RAM_128", "VEKKS_ATLAS_140_SHIELD_GENERATOR_128",
+        "VEKKS_ATLAS_RAID_SUPPORT_128", "VEKKS_ATLAS_RAID_DAMAGE_128", "VEKKS_ATLAS_RAID_TANK_128", "VEKKS_ATLAS_RAID_HEAL_128"};
+    constexpr std::array<const char*, 18> TextureIds64{
         "VEKKS_ATLAS_113_HOUSE_64", "VEKKS_ATLAS_113_SWORDS_64", "VEKKS_ATLAS_113_PICKAXE_64", "VEKKS_ATLAS_113_MISSION_64",
         "VEKKS_ATLAS_113_STAR_64", "VEKKS_ATLAS_113_CHEST_64", "VEKKS_ATLAS_113_FLAG_64", "VEKKS_ATLAS_113_CHECK_64",
         "VEKKS_ATLAS_140_PORTAL_64", "VEKKS_ATLAS_140_ARROW_CART_64", "VEKKS_ATLAS_140_CATAPULT_64",
-        "VEKKS_ATLAS_140_TREBUCHET_64", "VEKKS_ATLAS_140_FLAME_RAM_64", "VEKKS_ATLAS_140_SHIELD_GENERATOR_64"};
+        "VEKKS_ATLAS_140_TREBUCHET_64", "VEKKS_ATLAS_140_FLAME_RAM_64", "VEKKS_ATLAS_140_SHIELD_GENERATOR_64",
+        "VEKKS_ATLAS_RAID_SUPPORT_64", "VEKKS_ATLAS_RAID_DAMAGE_64", "VEKKS_ATLAS_RAID_TANK_64", "VEKKS_ATLAS_RAID_HEAL_64"};
 
     bool Finite(float value) { return std::isfinite(value); }
     bool IsWvWMap(Mumble::EMapType type);
@@ -420,6 +427,8 @@ namespace cmm
         case Icon::Portal: return "wvw_portal"; case Icon::ArrowCart: return "wvw_arrow_cart";
         case Icon::Catapult: return "wvw_catapult"; case Icon::Trebuchet: return "wvw_trebuchet";
         case Icon::FlameRam: return "wvw_flame_ram"; case Icon::ShieldGenerator: return "wvw_shield_generator";
+        case Icon::RaidSupport: return "raid_support"; case Icon::RaidDamage: return "raid_damage";
+        case Icon::RaidTank: return "raid_tank"; case Icon::RaidHeal: return "raid_heal";
         }
         return "house";
     }
@@ -495,8 +504,8 @@ namespace cmm
 
     void MarkDirty()
     {
+        if (!Dirty) DirtySince = std::chrono::steady_clock::now();
         Dirty = true;
-        DirtySince = std::chrono::steady_clock::now();
     }
 
     ImVec2 ClampWindowPosition(ImVec2 position, ImVec2 size)
@@ -542,7 +551,7 @@ namespace cmm
         DirtySince = std::chrono::steady_clock::now();
         try
         {
-        json root{{"schema_version", 3}, {"markers", json::array()}, {"folders", json::array()}, {"unfiled_visibility", json::array()},
+        json root{{"schema_version", 4}, {"raids", RaidTools.Save()}, {"markers", json::array()}, {"folders", json::array()}, {"unfiled_visibility", json::array()},
             {"settings", {{"language", LanguageCode(AtlasPreferences.language)}, {"map_icon_size", AtlasPreferences.mapIconSize},
                 {"minimap_icon_size", AtlasPreferences.minimapIconSize}, {"label_scale", AtlasPreferences.labelScale},
                 {"name_map", AtlasPreferences.nameMap}, {"name_minimap", AtlasPreferences.nameMinimap}, {"name_world", AtlasPreferences.nameWorld},
@@ -621,6 +630,7 @@ namespace cmm
 
     void LoadMarkers()
     {
+        RaidTools.Reset();
         Markers.clear();
         Folders.clear();
         UnfiledVisibility.clear();
@@ -638,7 +648,7 @@ namespace cmm
             json root; input >> root;
             if (!root.is_object() || !root.contains("schema_version") || !root.contains("markers") || !root["markers"].is_array())
                 throw std::runtime_error(Tr("Unknown marker format; the file will not be changed."));
-            const int schema = static_cast<int>(ReadInteger(root.at("schema_version"), 1, 3));
+            const int schema = static_cast<int>(ReadInteger(root.at("schema_version"), 1, 4));
             if (root.contains("settings"))
             {
                 const auto& settings = root.at("settings");
@@ -797,6 +807,7 @@ namespace cmm
                 }
                 catch (...) { throw std::runtime_error(Tr("The file contains invalid markers; it is preserved and writing is disabled.")); }
             }
+            if (root.contains("raids")) RaidTools.Load(root.at("raids"));
             if (schema == 1) SchemaOneSource = DataFile;
             AtlasPreferences = loadedPreferences;
             SetLanguage(AtlasPreferences.language);
@@ -804,6 +815,7 @@ namespace cmm
         catch (const std::exception& error)
         {
             Markers.clear();
+            RaidTools.Reset();
             Folders.clear();
             UnfiledVisibility.clear();
             StorageWritable = false;
@@ -893,7 +905,8 @@ namespace cmm
 
     std::optional<Point> MarkerMapPosition(const Marker& marker)
     {
-        if (marker.worldPosition) return CompetitivePlayerContinent(marker.mapId, *marker.worldPosition);
+        if (marker.worldPosition)
+            if (const auto point=CompetitivePlayerContinent(marker.mapId, *marker.worldPosition)) return point;
         return marker.continent;
     }
 
@@ -977,6 +990,7 @@ namespace cmm
 
     void DrawWorldMarkerBeacons(const State& state)
     {
+        HoveredRaidMarker.clear();
         WorldBeaconCandidates = 0;
         WorldBeaconsDrawn = 0;
         if (!AtlasPreferences.worldBeacons || state.mapOpen || state.character.empty() ||
@@ -997,7 +1011,7 @@ namespace cmm
                 if ((!texture || !texture->Resource) && index < IconTextures64.size()) texture = IconTextures64[index];
                 beacons.push_back({marker.continent.x, marker.continent.y, IconColor(marker.icon),
                     marker.worldHeight.value_or(marker.worldPosition ? marker.worldPosition->y : referenceHeight),
-                    texture ? texture->Resource : nullptr, marker.name, marker.worldPosition});
+                    texture ? texture->Resource : nullptr, marker.name, marker.worldPosition, marker.id});
             }
         if (PopupVisible && EditingFromWorld && !EditingExisting && state.character == EditingCharacter && state.mapId == EditingMapId)
         {
@@ -1015,7 +1029,8 @@ namespace cmm
             {AtlasPreferences.beaconOpacity, AtlasPreferences.beaconMaxDistance, state.uiScale,
                 AtlasPreferences.worldIcons, AtlasPreferences.nameWorld, AtlasPreferences.distanceWorld,
                 AtlasPreferences.worldIconOpacity, AtlasPreferences.worldNameOpacity, AtlasPreferences.worldDistanceOpacity,
-                AtlasPreferences.worldIconScale, AtlasPreferences.worldTextScale, AtlasPreferences.beaconWidth});
+                AtlasPreferences.worldIconScale, AtlasPreferences.worldTextScale, AtlasPreferences.beaconWidth},
+            RaidTools.enabled && RaidTools.eraser ? &HoveredRaidMarker : nullptr);
     }
 
     std::string DisplayLabel(std::string_view name)
@@ -1131,7 +1146,7 @@ namespace cmm
         if (!PopupVisible || EditingExisting || !state.mapOpen || state.character != EditingCharacter ||
             state.mapId != EditingMapId || !Valid(state.fullMap)) return;
 
-        const auto point = PendingWorldPosition ? CompetitivePlayerContinent(EditingMapId, *PendingWorldPosition) : std::optional<Point>{PendingPoint};
+        const auto point = PendingWorldPosition ? std::optional<Point>{CompetitivePlayerContinent(EditingMapId, *PendingWorldPosition).value_or(PendingPoint)} : std::optional<Point>{PendingPoint};
         if (!point) return;
         const auto screen = ToScreen(state.fullMap, *point);
         if (!screen || !Contains(state.fullMap, *screen)) return;
@@ -1305,10 +1320,11 @@ namespace cmm
         MarkDirty();
     }
 
-    void RemoveMarker(const std::string& id)
+    void RemoveMarker(const std::string& id, std::string_view character = {})
     {
+        if (character.empty()) character = EditingCharacter;
         Markers.erase(std::remove_if(Markers.begin(), Markers.end(), [&](const Marker& marker) {
-            return marker.id == id && marker.character == EditingCharacter;
+            return marker.id == id && marker.character == character;
         }), Markers.end());
         if (EditingExisting && EditingId == id) { PopupVisible = false; FolderManagerVisible = false; SettingsVisible = false; }
         MarkDirty();
@@ -1658,15 +1674,23 @@ namespace cmm
         ImGui::PushID(static_cast<int>(icon));
         const ImVec2 pos = ImGui::GetCursorScreenPos();
         const float scale = std::clamp(NexusLink->Scaling, .5f, 4.0f);
-        const float side = compact ? 42.0f : 62.0f;
+        const float side = RaidTools.enabled ? 32.0f : compact ? 42.0f : 62.0f;
         if (ImGui::InvisibleButton("icon", {side*scale, side*scale})) PendingIcon = icon;
         auto* draw = ImGui::GetWindowDrawList();
         draw->AddRectFilled(pos, {pos.x+side*scale,pos.y+side*scale}, selected ? IM_COL32(65,57,34,255) :
             ImGui::IsItemHovered() ? IM_COL32(41,50,52,255) : IM_COL32(24,33,37,255), 5*scale);
-        DrawIcon(draw, {pos.x + side*.5f*scale, pos.y + side*.5f*scale}, (compact ? 17.0f : 25.0f)*scale, icon);
+        DrawIcon(draw, {pos.x + side*.5f*scale, pos.y + side*.5f*scale}, (RaidTools.enabled ? 14.0f : compact ? 17.0f : 25.0f)*scale, icon);
         if (selected) draw->AddRect(pos, {pos.x+side*scale,pos.y+side*scale}, IM_COL32(224, 183, 100, 255), 5*scale, 0, 1.5f*scale);
         if (ImGui::IsItemHovered()) ImGui::SetTooltip("%s", Tr(IconNames[static_cast<size_t>(icon)]));
         ImGui::PopID();
+    }
+
+    void DrawGeneralIconChoices(bool compact)
+    {
+        constexpr Icon icons[]{Icon::House,Icon::Swords,Icon::Pickaxe,Icon::Mission,Icon::Star,Icon::Chest,Icon::Flag,Icon::Check,
+            Icon::RaidSupport,Icon::RaidDamage,Icon::RaidTank,Icon::RaidHeal};
+        const int count=RaidTools.enabled ? 12 : 8, columns=RaidTools.enabled ? 6 : 4;
+        for (int i=0;i<count;++i) { if (i%columns) ImGui::SameLine(); DrawIconChoice(icons[i],compact); }
     }
 
     void DrawWvWIconChoices(bool compact)
@@ -1711,7 +1735,7 @@ namespace cmm
         if (!saved) { PopupVisible = false; FolderManagerVisible = false; SettingsVisible = false; return; }
 
         ImGui::TextColored({.86f,.71f,.40f,1}, Tr("QUICK EDIT"));
-        ImGui::SameLine(ImGui::GetWindowContentRegionMax().x - 84*scale);
+        ImGui::SameLine(ImGui::GetWindowContentRegionMax().x - 120*scale);
         if (FolderButton(scale))
         {
             FolderManagerVisible = !FolderManagerVisible;
@@ -1719,18 +1743,12 @@ namespace cmm
         }
         ImGui::SameLine();
         if (SettingsButton(scale)) { SettingsVisible = !SettingsVisible; if (SettingsVisible) FolderManagerVisible = false; }
+        ImGui::SameLine(); if (RaidTools.Button(scale)) MarkDirty();
         ImGui::TextDisabled("%s", MapName(saved->mapId));
         ImGui::Separator();
         ImGui::SetNextItemWidth(-1);
         ImGui::InputText("##QuickName", PendingName.data(), PendingName.size());
-        for (uint8_t row = 0; row < 2; ++row)
-        {
-            for (uint8_t column = 0; column < 4; ++column)
-            {
-                if (column) ImGui::SameLine();
-                DrawIconChoice(static_cast<Icon>(row*4+column), true);
-            }
-        }
+        DrawGeneralIconChoices(true);
         if (IsWvWMap(state.mapType)) DrawWvWIconChoices(true);
         ImGui::SetNextItemWidth(-1);
         FolderSelector("##QuickFolder", state.character, PendingFolderId);
@@ -1807,7 +1825,7 @@ namespace cmm
         if (visible)
         {
             ImGui::TextColored({.86f,.71f,.40f,1}, Tr("YOUR PERSONAL ATLAS"));
-            ImGui::SameLine(ImGui::GetWindowContentRegionMax().x - 84*scale);
+            ImGui::SameLine(ImGui::GetWindowContentRegionMax().x - 120*scale);
             if (FolderButton(scale))
             {
                 FolderManagerVisible = !FolderManagerVisible;
@@ -1815,17 +1833,11 @@ namespace cmm
             }
             ImGui::SameLine();
             if (SettingsButton(scale)) { SettingsVisible = !SettingsVisible; if (SettingsVisible) FolderManagerVisible = false; }
+        ImGui::SameLine(); if (RaidTools.Button(scale)) MarkDirty();
             ImGui::TextUnformatted(Tr("Save a location"));
             ImGui::TextDisabled(Tr("Choose an icon for this location"));
             ImGui::Separator();
-            for (uint8_t row = 0; row < 2; ++row)
-            {
-                for (uint8_t column = 0; column < 4; ++column)
-                {
-                    if (column) ImGui::SameLine();
-                    DrawIconChoice(static_cast<Icon>(row*4+column));
-                }
-            }
+            DrawGeneralIconChoices(false);
             if (IsWvWMap(state.mapType)) DrawWvWIconChoices(true);
             ImGui::TextUnformatted(Tr("Name"));
             ImGui::SetNextItemWidth(-1);
@@ -1887,6 +1899,8 @@ namespace cmm
         CapturingShortcut.store(ShortcutCapture::None, std::memory_order_release);
         if (packet & (1u << 20)) { ShortcutMessage = Tr("Shortcut capture canceled."); return; }
         Shortcut shortcut = packet & (1u << 19) ? Shortcut{} : UnpackShortcut(packet);
+        if (MatchesShortcut({'N',false,true,true},shortcut.key,shortcut.alt,shortcut.ctrl,shortcut.shift))
+        { ShortcutMessage=Tr("Ctrl+Shift+N is reserved for raid tools."); return; }
         Shortcut& destination = target == ShortcutCapture::Placement ? AtlasPreferences.placementShortcut : AtlasPreferences.settingsShortcut;
         const Shortcut& other = target == ShortcutCapture::Placement ? AtlasPreferences.settingsShortcut : AtlasPreferences.placementShortcut;
         if (shortcut.key && PackShortcut(shortcut) == PackShortcut(other))
@@ -1960,6 +1974,11 @@ namespace cmm
         if (ImGui::BeginTabItem(Tr("General")))
         {
             DrawLanguageSelector();
+            const bool wasRaid=RaidTools.enabled;
+            if (ImGui::Checkbox(UiLabel("Raid mode").c_str(), &RaidTools.enabled))
+            { changed=true; RaidTools.windowVisible=RaidTools.enabled; if (wasRaid) { RaidTools.Finish(); RaidTools.eraser=false; } }
+            if (RaidTools.enabled && ImGui::Button(UiLabel("Show raid tools").c_str())) RaidTools.windowVisible=true;
+            ImGui::TextDisabled("Ctrl+Shift+N");
             changed |= ImGui::Checkbox(UiLabel("Show sharing help").c_str(), &AtlasPreferences.shareHelp);
             changed |= ImGui::Checkbox(UiLabel("Dark name background").c_str(), &AtlasPreferences.labelBackground);
             changed |= ImGui::Checkbox(UiLabel("Icon shadow and glow").c_str(), &AtlasPreferences.iconEffects);
@@ -2103,6 +2122,7 @@ namespace cmm
         if (ImGui::Button(UiLabel("Reset defaults").c_str()))
         {
             AtlasPreferences = Preferences{};
+            RaidTools.Finish(); RaidTools.enabled=RaidTools.windowVisible=RaidTools.eraser=false;
             AdvancedModeEnabled.store(false, std::memory_order_release);
             SetLanguage(Language::English);
             SyncShortcutState();
@@ -2353,6 +2373,8 @@ namespace cmm
             const Shortcut pressed{static_cast<uint16_t>(wParam), (GetKeyState(VK_MENU)&0x8000)!=0,
                 (GetKeyState(VK_CONTROL)&0x8000)!=0, (GetKeyState(VK_SHIFT)&0x8000)!=0};
             const uint32_t packed = PackShortcut(pressed);
+            if (MatchesShortcut({'N',false,true,true},pressed.key,pressed.alt,pressed.ctrl,pressed.shift))
+            { PendingRaidToggle.store(true,std::memory_order_release); return 0; }
             if (packed == ActiveSettingsShortcut.load(std::memory_order_acquire) && pressed.key)
             { PendingSettingsToggle.store(true, std::memory_order_release); return 0; }
             if (packed == ActivePlacementShortcut.load(std::memory_order_acquire) && pressed.key)
@@ -2411,13 +2433,24 @@ namespace cmm
         try
         {
         const State state = ReadState();
+        const RaidContext raidContext{state.character,state.mapId,state.worldCamera.avatarPosition,
+            state.avatarValid && !state.character.empty(),state.mapOpen,StorageWritable,state.uiScale};
+        if (PendingRaidToggle.exchange(false)) { RaidTools.ToggleWindow(); MarkDirty(); }
+        if (RaidTools.Update(raidContext)) MarkDirty();
         HotkeysEnabled.store(!state.character.empty() && !state.textFocused && !ImGui::GetIO().WantTextInput,
             std::memory_order_release);
         if (PendingSettingsToggle.exchange(false, std::memory_order_acq_rel)) SettingsVisible = !SettingsVisible;
         ProcessCapturedShortcut();
         RefreshTextures();
         ProcessAdvancedPlacement(state);
+        std::string hoveredRoute;
+        if (RaidTools.enabled && raidContext.valid && !state.mapOpen)
+            hoveredRoute=DrawRaidPaths(ImGui::GetBackgroundDrawList(),state.worldCamera,RaidTools.paths,
+                state.character,state.mapId,AtlasPreferences.beaconMaxDistance,state.uiScale,RaidTools.eraser);
         DrawWorldMarkerBeacons(state);
+        if (RaidTools.enabled && RaidTools.eraser && raidContext.valid && !state.mapOpen && !PopupVisible &&
+            !ImGui::GetIO().WantCaptureMouse && !ImGui::GetIO().WantTextInput && ImGui::IsMouseClicked(0))
+            RaidTools.SelectForDeletion(HoveredRaidMarker.empty()?hoveredRoute:std::string{},HoveredRaidMarker);
         DrawMarkers(state, state.mapOpen ? state.fullMap : View{}, false);
         DrawMarkers(state, state.minimap, true);
         const bool mapAuthor = state.mapOpen && Valid(state.fullMap);
@@ -2475,6 +2508,14 @@ namespace cmm
         DrawFolderManager(state);
         DrawLauncher(state);
         DrawSettings(state);
+        if (RaidTools.Draw(raidContext,[&](Icon icon) {
+            if (PopupVisible || !raidContext.valid || !StorageWritable) return;
+            const Point point=IsWvWMap(state.mapType) ? CompetitivePlayerContinent(state.mapId,state.worldCamera.avatarPosition).value_or(Point{}) :
+                Point{state.worldCamera.playerContinentX,state.worldCamera.playerContinentY};
+            OpenEditor(state,point,std::nullopt,state.worldCamera.avatarPosition.y,true);
+            PendingWorldPosition=state.worldCamera.avatarPosition; PendingIcon=icon;
+        },[&](ImDrawList* draw,ImVec2 center,float radius,Icon icon) { DrawIcon(draw,center,radius,icon); },
+          [&](const std::string& id) { RemoveMarker(id, state.character); })) MarkDirty();
         DrawMinimapDelete(state);
         PopupOwnsInput.store(PopupVisible);
         if (PopupVisible) CanAuthor.store(false);
@@ -2502,7 +2543,7 @@ namespace cmm
     void Options()
     {
         std::lock_guard lock(StateMutex);
-        ImGui::TextUnformatted("Vekk's Atlas 1.0.0");
+        ImGui::TextUnformatted("Vekk's Atlas 1.1.0");
         ImGui::TextUnformatted("Leir.6218");
         ImGui::TextWrapped("AI Notice: developed by Leir.6218 with AI assistance.");
         if (!Ready.load())
@@ -2580,7 +2621,7 @@ namespace cmm
         Api->GUI_Register(RT_Render, Render); RenderRegistered = true;
         Api->GUI_Register(RT_OptionsRender, Options); OptionsRegistered = true;
         if (Api->WndProc_Register) { Api->WndProc_Register(InputCallback); InputRegistered = true; }
-        if (Api->Log) Api->Log(LOGL_INFO, AddonName, "Vekk's Atlas 1.0.0 loaded; WvW markers use saved MumbleLink world positions; WvW map overlays are disabled.");
+        if (Api->Log) Api->Log(LOGL_INFO, AddonName, "Vekk's Atlas 1.1.0 loaded; WvW markers use saved MumbleLink world positions; WvW map overlays are disabled.");
         }
         catch (const std::exception& error)
         {
@@ -2597,6 +2638,7 @@ namespace cmm
         HotkeysEnabled.store(false, std::memory_order_release);
         PendingAdvancedPlacement.store(false);
         PendingSettingsToggle.store(false);
+        PendingRaidToggle.store(false);
         AdvancedModeEnabled.store(false, std::memory_order_release);
         CapturingShortcut.store(ShortcutCapture::None, std::memory_order_release);
         CapturedShortcut.store(0, std::memory_order_release);
@@ -2617,6 +2659,7 @@ namespace cmm
         if (Api && FrameRegistered && Api->GUI_Deregister) Api->GUI_Deregister(AfterFrame);
         if (Api && OptionsRegistered && Api->GUI_Deregister) Api->GUI_Deregister(Options);
         std::lock_guard lock(StateMutex);
+        if (RaidTools.Finish()) MarkDirty();
         SaveMarkers();
         InputRegistered = RenderRegistered = OptionsRegistered = FrameRegistered = false;
         AddonEventsRegistered = false;
@@ -2638,7 +2681,7 @@ namespace cmm
         PendingName.fill(0); NewFolderName.fill(0); RenameFolderName.fill(0); PasteText.fill(0); SettingsPasteText.fill(0);
         std::fill(FolderPasteText.begin(), FolderPasteText.end(), char{0});
         WorldBeaconCandidates = WorldBeaconsDrawn = 0;
-        Markers.clear(); Folders.clear(); UnfiledVisibility.clear();
+        Markers.clear(); Folders.clear(); UnfiledVisibility.clear(); RaidTools.Reset(); HoveredRaidMarker.clear();
         MapNames.clear();
         IconTextures128.fill(nullptr); IconTextures64.fill(nullptr); LauncherTexture = nullptr;
         DataFile.clear(); SchemaOneSource.clear(); StorageError.clear(); Dirty = false;
@@ -2659,7 +2702,7 @@ extern "C" __declspec(dllexport) AddonDefinition_t* GetAddonDef()
     definition.Signature = static_cast<uint32_t>(-42424121);
     definition.APIVersion = NEXUS_API_VERSION;
     definition.Name = cmm::AddonName;
-    definition.Version = {1, 0, 0, 0};
+    definition.Version = {1, 1, 0, 0};
     definition.Author = "Leir.6218";
     definition.Description = "Personal map, minimap, WvW and 3D light markers with optional RTAPI cursor placement.";
     definition.Load = cmm::Load;

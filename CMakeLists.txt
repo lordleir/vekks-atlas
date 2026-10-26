@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(VekksAtlas VERSION 1.0.0 LANGUAGES CXX RC)
+project(VekksAtlas VERSION 1.1.0 LANGUAGES CXX RC)
 
 include(CTest)
 
@@ -22,6 +22,7 @@ add_library(VekksAtlas SHARED
   src/AtlasClipboard.cpp
   src/AdvancedPlacement.cpp
   src/CompetitiveCoordinates.cpp
+  src/RaidMode.cpp
   src/WorldBeacons.cpp
   src/WorldReference.cpp
   src/Version.rc

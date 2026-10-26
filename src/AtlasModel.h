@@ -8,7 +8,8 @@ namespace cmm
     enum class Icon : uint8_t
     {
         House, Swords, Pickaxe, Mission, Star, Chest, Flag, Check,
-        Portal, ArrowCart, Catapult, Trebuchet, FlameRam, ShieldGenerator
+        Portal, ArrowCart, Catapult, Trebuchet, FlameRam, ShieldGenerator,
+        RaidSupport, RaidDamage, RaidTank, RaidHeal
     };
     struct Point { float x{}; float y{}; };
     struct WorldVec3 { float x{}; float y{}; float z{}; };

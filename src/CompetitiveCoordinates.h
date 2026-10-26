@@ -1,12 +1,9 @@
 #pragma once
 
 #include "AtlasModel.h"
-#include "WorldBeacons.h"
 
 #include <cstdint>
 #include <optional>
-#include <string>
-#include <string_view>
 
 namespace cmm
 {

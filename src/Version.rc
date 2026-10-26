@@ -1,7 +1,7 @@
 #include <windows.h>
 1 VERSIONINFO
-FILEVERSION 1,0,0,0
-PRODUCTVERSION 1,0,0,0
+FILEVERSION 1,1,0,0
+PRODUCTVERSION 1,1,0,0
 FILEFLAGSMASK 0x3fL
 FILEFLAGS 0
 FILEOS VOS_NT_WINDOWS32
@@ -12,11 +12,11 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "FileDescription", "Vekk's Atlas - Nexus map markers\0"
-            VALUE "FileVersion", "1.0.0.0\0"
+            VALUE "FileVersion", "1.1.0.0\0"
             VALUE "ProductName", "Vekk's Atlas\0"
             VALUE "CompanyName", "Leir.6218\0"
             VALUE "Comments", "AI Notice: developed by Leir.6218 with AI assistance.\0"
-            VALUE "ProductVersion", "1.0.0.0\0"
+            VALUE "ProductVersion", "1.1.0.0\0"
             VALUE "OriginalFilename", "VekksAtlas.dll\0"
         END
     END
@@ -47,6 +47,10 @@ END
 212 PNG "../assets/icons/128/wvw_trebuchet.png"
 213 PNG "../assets/icons/128/wvw_ariete.png"
 214 PNG "../assets/icons/128/wvw_shield_generator.png"
+215 PNG "../assets/icons/128/raid_support.png"
+216 PNG "../assets/icons/128/raid_damage.png"
+217 PNG "../assets/icons/128/raid_tank.png"
+218 PNG "../assets/icons/128/raid_heal.png"
 301 PNG "../assets/icons/64/casa.png"
 302 PNG "../assets/icons/64/espadas.png"
 303 PNG "../assets/icons/64/pico.png"
@@ -61,4 +65,8 @@ END
 312 PNG "../assets/icons/64/wvw_trebuchet.png"
 313 PNG "../assets/icons/64/wvw_ariete.png"
 314 PNG "../assets/icons/64/wvw_shield_generator.png"
+315 PNG "../assets/icons/64/raid_support.png"
+316 PNG "../assets/icons/64/raid_damage.png"
+317 PNG "../assets/icons/64/raid_tank.png"
+318 PNG "../assets/icons/64/raid_heal.png"
 401 PNG "../assets/ui/atlas_launcher.png"

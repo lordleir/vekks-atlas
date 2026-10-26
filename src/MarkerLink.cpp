@@ -77,7 +77,7 @@ namespace cmm
 
         bool ValidPayload(const ShareableMarker& marker, size_t nameLimit, size_t folderLimit)
         {
-            return marker.mapId > 0 && static_cast<unsigned>(marker.icon) <= static_cast<unsigned>(Icon::ShieldGenerator) &&
+            return marker.mapId > 0 && static_cast<unsigned>(marker.icon) <= static_cast<unsigned>(Icon::RaidHeal) &&
                 std::isfinite(marker.continent.x) && std::isfinite(marker.continent.y) &&
                 std::abs(marker.continent.x) <= 10000000.0f && std::abs(marker.continent.y) <= 10000000.0f &&
                 ValidHeight(marker.worldHeight) && (!marker.worldPosition ||

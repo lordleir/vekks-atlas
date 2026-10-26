@@ -16,6 +16,10 @@ namespace cmm
         case Icon::Trebuchet: return Rgba(45, 125, 235);
         case Icon::FlameRam: return Rgba(218, 72, 49);
         case Icon::ShieldGenerator: return Rgba(72, 205, 205);
+        case Icon::RaidSupport: return Rgba(242, 194, 52);
+        case Icon::RaidDamage: return Rgba(231, 74, 49);
+        case Icon::RaidTank: return Rgba(52, 148, 241);
+        case Icon::RaidHeal: return Rgba(69, 228, 91);
         }
         return Rgba(255, 255, 255);
     }

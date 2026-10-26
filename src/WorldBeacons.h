@@ -1,6 +1,7 @@
 #pragma once
 
 #include "AtlasModel.h"
+#include "RaidPaths.h"
 
 #include <imgui.h>
 
@@ -31,6 +32,7 @@ namespace cmm
         ImTextureID icon{}; // borrowed Nexus texture, valid for this frame
         std::string_view name; // borrowed marker label; no per-frame full-name copies
         std::optional<WorldVec3> worldPosition;
+        std::string_view id;
     };
 
     struct WorldMapReference
@@ -69,5 +71,7 @@ namespace cmm
     bool IsWorldBeaconCameraValid(const WorldBeaconCamera& camera);
 
     std::size_t DrawWorldBeacons(ImDrawList* draw, const WorldBeaconCamera& camera, const WorldMapReference& reference,
-        const std::vector<WorldBeacon>& beacons, const WorldBeaconStyle& style);
+        const std::vector<WorldBeacon>& beacons, const WorldBeaconStyle& style, std::string* hoveredMarker = nullptr);
+    std::string DrawRaidPaths(ImDrawList* draw, const WorldBeaconCamera& camera, const std::vector<RaidPath>& paths,
+        std::string_view character, uint32_t mapId, float maxDistance, float scale, bool picking);
 }

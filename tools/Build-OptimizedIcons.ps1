@@ -1,6 +1,7 @@
 param(
     [string]$SourceDirectory = (Join-Path (Split-Path $PSScriptRoot -Parent) 'assets\icons-source'),
-    [string]$OutputDirectory = (Join-Path (Split-Path $PSScriptRoot -Parent) 'assets\icons')
+    [string]$OutputDirectory = (Join-Path (Split-Path $PSScriptRoot -Parent) 'assets\icons'),
+    [string[]]$Names = @()
 )
 
 $ErrorActionPreference = 'Stop'
@@ -72,11 +73,13 @@ public static class AtlasIconBuilder
 '@
 }
 
-$names = 'casa', 'espadas', 'pico', 'mision', 'estrella', 'cofre', 'bandera', 'check'
+if ($Names.Count -eq 0) {
+    $Names = Get-ChildItem -LiteralPath $SourceDirectory -Filter '*.png' | Select-Object -ExpandProperty BaseName
+}
 foreach ($size in 64, 128) {
     $target = Join-Path $OutputDirectory $size
     New-Item -ItemType Directory -Force -Path $target | Out-Null
-    foreach ($name in $names) {
+    foreach ($name in $Names) {
         $source = Join-Path $SourceDirectory ($name + '.png')
         $destination = Join-Path $target ($name + '.png')
         [AtlasIconBuilder]::Build($source, $destination, $size)

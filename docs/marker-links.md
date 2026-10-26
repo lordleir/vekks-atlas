@@ -15,6 +15,8 @@ Atlas shares markers as text codes. They are not web links or GW2 chat links.
 
 The icon byte supports the eight general icons plus portal, arrow cart, catapult, trebuchet, flame ram and shield generator. Marker names may use 127 UTF-8 bytes and folder names 63, provided the complete code remains within 256 characters. Atlas never truncates data silently.
 
+Atlas 1.1 appends support, damage, tank and heal at icon IDs 14–17. Earlier icon IDs are unchanged. Recipients need Atlas 1.1 to import these four roles.
+
 Atlas still accepts legacy `VA1:` codes. They have the same basic location data but no 3D elevation.
 
 Markers with a saved MumbleLink world position use `VA3:`. This extends the VA2 record with flag bit 1 and three float32 values (X, Y, Z in metres) after the optional elevation and before the names. Y is vertical. The original position and manual elevation are preserved separately. The 256-character limit still applies.
@@ -34,3 +36,13 @@ Folders containing saved world positions use `VAF3:` with the same extended mark
 Checksums detect damaged codes. They do not verify the sender and they do not encrypt anything. Neither format contains account or character identity.
 
 Imports preserve the original map position and, when present, the 3D elevation. Shared copies are local and are not synchronized with the sender.
+
+## Routes: VAR1
+
+`VAR1:` contains a JSON array of routes with map ID, name, color, visibility and XYZ samples in MumbleLink metres. The JSON uses ASCII escapes for non-ASCII names so it can use the existing text-code clipboard. It contains no character names or local IDs. Import generates new IDs and assigns routes to the receiving character.
+
+The maximum text size is 1 MiB. A route has 2–4,096 finite samples; adjacent points must be at most 30 metres apart. Storage is limited to 128 routes and 65,536 total samples. Imports validate all routes before appending any of them. Route codes are plain editable JSON, without a checksum or sender authentication.
+
+## Settings
+
+`VAS2:` includes pillar width and accepts a range starting at 250 displayed units. `VAS1:` remains importable with the default width. Raid drawings are saved separately and shared through `VAR1:`, not through settings codes.

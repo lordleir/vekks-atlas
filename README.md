@@ -6,7 +6,9 @@ Save places on the map, organize them into folders and share them with friends. 
 
 ## Install
 
-Download [VekksAtlas.dll](https://github.com/lordleir/vekks-atlas/releases/latest/download/VekksAtlas.dll) and place it in `Guild Wars 2/addons/`. Disable Atlas in Nexus before replacing the DLL, then enable it again. Windows x64 is required.
+Download the [1.1 raid preview](https://github.com/lordleir/vekks-atlas/releases/tag/v1.1.0) or the [1.0 base release](https://github.com/lordleir/vekks-atlas/releases/tag/v1.0.0). Version 1.1 has been compiled; in-game validation is pending.
+
+Place `VekksAtlas.dll` in `Guild Wars 2/addons/`. Disable Atlas in Nexus before replacing the DLL, then enable it again. Windows x64 is required.
 
 Your saved markers are kept when updating. Icons and translations are included in the DLL.
 
@@ -25,6 +27,19 @@ Right-click a map marker to edit it, or a minimap marker to delete it. In WvW, o
 Folders can be hidden, renamed, copied and imported. Deleting a folder lets you move its markers elsewhere or delete them. Importing an existing folder name asks whether to replace it or create a separate copy.
 
 **Copy Marker** copies a text code you can send to a friend. Pasting it recreates the same marker, including saved elevation. Folder codes share complete collections. Shared copies are independent.
+
+## Raid tools — 1.1
+
+Enable **Raid mode** with the crossed-swords button beside Settings, or in **Settings → General**. **Ctrl+Shift+N** opens or hides its compact toolbar. The marker picker gains four roles: support, damage, tank and heal.
+
+- Click the pencil to start recording from your character's current position. Walk the route, then click the stop button.
+- Saved routes appear as dashed 3D lines with arrows in the direction you walked.
+- Click an icon in the toolbar to place a marker at your feet and open its editor.
+- Select the eraser, click a visible route or marker, and confirm before deleting it.
+- Name, recolor, hide or delete routes from the toolbar's list.
+- **Copy routes** shares the routes on your current map. A friend can use **Paste routes** to import the code. Share role markers separately using marker folders.
+
+Recording uses MumbleLink and does not require RTAPI. Map changes, loading and large position jumps stop recording. Routes follow your sampled position, including jumps; they do not detect terrain and can appear through walls. The toolbar's visibility does not affect saved routes; disabling Raid mode hides the routes.
 
 ## Appearance
 
