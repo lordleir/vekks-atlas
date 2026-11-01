@@ -70,4 +70,4 @@ Not affiliated with or endorsed by ArenaNet or Raidcore. [Installation guide](IN
 
 ## Video
 
-[Watch Vekk's Atlas in action](https://youtu.be/1x_KMD0CM6I)
+[Watch Vekk's Atlas in action](https://www.youtube.com/watch?v=ivah5h0zMKw)
