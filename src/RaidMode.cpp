@@ -480,7 +480,7 @@ namespace cmm
                 if(auto* path=current()){deletePath_=path->id;deleteMarker_.clear();windowVisible=true;}
             ImGui::PopStyleColor(2);
             if(!message_.empty()) ImGui::TextWrapped("%s",message_.c_str());
-            else ImGui::TextDisabled("%s  |  Ctrl+Shift+N",Tr("Changes are saved automatically."));
+            else ImGui::TextDisabled("%s",Tr("Changes are saved automatically."));
             if(!deletePath_.empty() || !deleteMarker_.empty()) {
                 const std::string popupLabel=std::string(Tr("Confirm deletion"))+"###AtlasDrawingDelete";
                 const char* popup=popupLabel.c_str();

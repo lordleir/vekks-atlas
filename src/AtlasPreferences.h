@@ -41,5 +41,6 @@ namespace cmm
         float launcherY{8.0f};
         Shortcut placementShortcut{'M', false, true, true};
         Shortcut settingsShortcut{'A', false, true, true};
+        Shortcut pathingShortcut{'N', false, true, true};
     };
 }

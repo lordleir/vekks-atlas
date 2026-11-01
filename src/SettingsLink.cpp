@@ -15,7 +15,8 @@ namespace cmm
 {
     namespace
     {
-        constexpr std::string_view Prefix = "VAS2:";
+        constexpr std::string_view Prefix = "VAS3:";
+        constexpr std::string_view Version2Prefix = "VAS2:";
         constexpr std::string_view LegacyPrefix = "VAS1:";
         constexpr size_t DigestBytes = 8;
 
@@ -108,7 +109,7 @@ namespace cmm
                 range(p.worldIconOpacity, .10f, 1) && range(p.worldNameOpacity, .10f, 1) &&
                 range(p.worldDistanceOpacity, .10f, 1) && range(p.launcherSize, 24, 96) &&
                 range(p.launcherX, -10000, 10000) && range(p.launcherY, -10000, 10000) &&
-                !IsModifierKey(p.placementShortcut.key) && !IsModifierKey(p.settingsShortcut.key);
+                !IsModifierKey(p.placementShortcut.key) && !IsModifierKey(p.settingsShortcut.key) && !IsModifierKey(p.pathingShortcut.key);
         }
 
         void AppendShortcut(std::vector<uint8_t>& data, const Shortcut& shortcut)
@@ -148,6 +149,7 @@ namespace cmm
         AppendShortcut(data, p.placementShortcut);
         AppendShortcut(data, p.settingsShortcut);
         Append(data, p.beaconWidth);
+        AppendShortcut(data, p.pathingShortcut);
         std::array<uint8_t,32> digest{};
         if (!Hash(data.data(), data.size(), digest)) { error = "Could not initialize SHA-256."; return false; }
         data.insert(data.end(), digest.begin(), digest.begin() + DigestBytes);
@@ -159,7 +161,8 @@ namespace cmm
     bool DecodeSettingsLink(std::string_view code, Preferences& settings, std::string& error)
     {
         error.clear();
-        const bool version2 = code.starts_with(Prefix);
+        const bool version3 = code.starts_with(Prefix);
+        const bool version2 = version3 || code.starts_with(Version2Prefix);
         if ((!version2 && !code.starts_with(LegacyPrefix)) || code.size() > 256) { error = "Invalid settings code."; return false; }
         std::vector<uint8_t> data;
         if (!DecodeBase64Url(code.substr(Prefix.size()), data) || data.size() <= DigestBytes)
@@ -190,6 +193,7 @@ namespace cmm
         for (float* number : numbers) if (!Read(data,offset,*number)) { error = "Incomplete settings data."; return false; }
         if (!ReadShortcut(data,offset,decoded.placementShortcut) || !ReadShortcut(data,offset,decoded.settingsShortcut) ||
             (version2 && !Read(data,offset,decoded.beaconWidth)) ||
+            (version3 && !ReadShortcut(data,offset,decoded.pathingShortcut)) ||
             offset != payloadSize || !Valid(decoded)) { error = "Invalid settings data."; return false; }
         settings = decoded;
         return true;

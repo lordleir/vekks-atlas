@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(VekksAtlas VERSION 1.1.10 LANGUAGES CXX RC)
+project(VekksAtlas VERSION 1.1.11 LANGUAGES CXX RC)
 
 include(CTest)
 

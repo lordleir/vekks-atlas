@@ -1,4 +1,4 @@
-# Vekk's Atlas 1.1.10
+# Vekk's Atlas 1.1.11
 
 Personal markers for Guild Wars 2, by **Leir.6218**. Requires [Nexus](https://raidcore.gg/Nexus).
 
@@ -6,7 +6,7 @@ Save places on the map, organize them into folders and share them with friends. 
 
 ## Install
 
-Download [VekksAtlas.dll](https://github.com/lordleir/vekks-atlas/releases/download/v1.1.10/VekksAtlas.dll).
+Download [VekksAtlas.dll](https://github.com/lordleir/vekks-atlas/releases/download/v1.1.11/VekksAtlas.dll).
 
 Place `VekksAtlas.dll` in `Guild Wars 2/addons/`. Disable Atlas in Nexus before replacing the DLL, then enable it again. Windows x64 is required.
 

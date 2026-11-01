@@ -129,6 +129,7 @@ namespace cmm
     std::unordered_map<uint32_t, float> WorldHeightReferences;
     Icon PendingIcon = Icon::House;
     std::array<char, 4097> PendingName{};
+    std::array<char, 64> PendingNewFolderName{};
     ImVec2 EditorAnchor{};
     bool ConfirmDelete = false;
     std::string PendingFolderId;
@@ -177,11 +178,12 @@ namespace cmm
     std::atomic<bool> PendingSettingsToggle{false};
     std::atomic<bool> AdvancedModeEnabled{false};
     std::atomic<bool> HotkeysEnabled{false};
-    enum class ShortcutCapture : uint8_t { None, Placement, Settings };
+    enum class ShortcutCapture : uint8_t { None, Placement, Settings, Pathing };
     std::atomic<ShortcutCapture> CapturingShortcut{ShortcutCapture::None};
     std::atomic<uint32_t> CapturedShortcut{0};
     std::atomic<uint32_t> ActivePlacementShortcut{0};
     std::atomic<uint32_t> ActiveSettingsShortcut{0};
+    std::atomic<uint32_t> ActivePathingShortcut{0};
     std::string AdvancedStatus;
     std::string ShortcutMessage;
 
@@ -251,6 +253,7 @@ namespace cmm
     {
         ActivePlacementShortcut.store(PackShortcut(AtlasPreferences.placementShortcut), std::memory_order_release);
         ActiveSettingsShortcut.store(PackShortcut(AtlasPreferences.settingsShortcut), std::memory_order_release);
+        ActivePathingShortcut.store(PackShortcut(AtlasPreferences.pathingShortcut), std::memory_order_release);
     }
 
     void OnQuickAccessAction(const char*, bool isRelease)
@@ -551,9 +554,16 @@ namespace cmm
         return position;
     }
 
-    void KeepCurrentWindowOnScreen(ImVec2* savedPosition = nullptr, ImVec2* savedSize = nullptr)
+    void KeepCurrentWindowOnScreen(ImVec2* savedPosition = nullptr, ImVec2* savedSize = nullptr, bool fitContent = false)
     {
-        const ImVec2 size = ImGui::GetWindowSize();
+        ImVec2 size = ImGui::GetWindowSize();
+        const auto display = ImGui::GetIO().DisplaySize;
+        if (fitContent)
+            size.y = std::max(size.y, std::ceil(ImGui::GetCursorPosY() + ImGui::GetStyle().WindowPadding.y));
+        size.x = std::min(size.x, std::max(100.f, display.x - 16.f));
+        size.y = std::min(size.y, std::max(100.f, display.y - 16.f));
+        const auto currentSize = ImGui::GetWindowSize();
+        if (size.x != currentSize.x || size.y != currentSize.y) ImGui::SetWindowSize(size);
         const ImVec2 position = ClampWindowPosition(ImGui::GetWindowPos(), size);
         ImGui::SetWindowPos(position, ImGuiCond_Always);
         if (savedPosition) *savedPosition = position;
@@ -610,7 +620,11 @@ namespace cmm
                 {"settings_shortcut_key", AtlasPreferences.settingsShortcut.key},
                 {"settings_shortcut_alt", AtlasPreferences.settingsShortcut.alt},
                 {"settings_shortcut_ctrl", AtlasPreferences.settingsShortcut.ctrl},
-                {"settings_shortcut_shift", AtlasPreferences.settingsShortcut.shift}}}};
+                {"settings_shortcut_shift", AtlasPreferences.settingsShortcut.shift},
+                {"pathing_shortcut_key", AtlasPreferences.pathingShortcut.key},
+                {"pathing_shortcut_alt", AtlasPreferences.pathingShortcut.alt},
+                {"pathing_shortcut_ctrl", AtlasPreferences.pathingShortcut.ctrl},
+                {"pathing_shortcut_shift", AtlasPreferences.pathingShortcut.shift}}}};
         for (const auto& folder : Folders)
             root["folders"].push_back({{"id", folder.id}, {"character", folder.character}, {"name", folder.name}, {"visible", folder.visible},
                 {"drawing",folder.drawing},{"notes",folder.notes}});
@@ -766,6 +780,7 @@ namespace cmm
                 readBool("launcher_visible", loadedPreferences.launcherVisible);
                 readShortcut("placement_shortcut", loadedPreferences.placementShortcut);
                 readShortcut("settings_shortcut", loadedPreferences.settingsShortcut);
+                readShortcut("pathing_shortcut", loadedPreferences.pathingShortcut);
             }
             if (schema >= 2)
             {
@@ -1735,6 +1750,7 @@ namespace cmm
         PendingIcon = Icon::House;
         ConfirmDelete = false;
         PendingFolderId.clear();
+        PendingNewFolderName.fill(0);
         EditorMessage.clear(); ManagerMessage.clear();
         PasteVisible = false; PasteText.fill(0); FolderManagerVisible = false; SettingsVisible = false;
         CancelEditor.store(false);
@@ -1820,6 +1836,13 @@ namespace cmm
         if (PendingWorldPosition && (!Finite(PendingWorldPosition->x) || !Finite(PendingWorldPosition->y) || !Finite(PendingWorldPosition->z) ||
             std::abs(PendingWorldPosition->x) > 100000.0f || std::abs(PendingWorldPosition->y) > 100000.0f || std::abs(PendingWorldPosition->z) > 100000.0f))
             throw std::runtime_error(Tr("Invalid world position."));
+        if (EditingExisting && !FindMarker(EditingId)) throw std::runtime_error(Tr("The marker no longer exists."));
+        if (!EditingExisting && Markers.size() >= 20000) throw std::runtime_error(Tr("The 20,000-marker limit has been reached."));
+        if (PendingNewFolderName[0])
+        {
+            PendingFolderId = CreateFolder(state.character, PendingNewFolderName.data());
+            PendingNewFolderName.fill(0);
+        }
         if (auto* marker = EditingExisting ? FindMarker(EditingId) : nullptr)
         {
             Marker updated = *marker;
@@ -1918,6 +1941,15 @@ namespace cmm
         ImGui::Spacing(); ImGui::Separator(); ImGui::Spacing();
     }
 
+    void DrawQuickFolderCreation()
+    {
+        ImGui::SetNextItemWidth(-1);
+        ImGui::InputTextWithHint("##MarkerNewFolder", Tr("Folder name"), PendingNewFolderName.data(), PendingNewFolderName.size());
+        ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
+        ImGui::TextWrapped("%s", Tr("Enter a name to create a marker folder when you save."));
+        ImGui::PopStyleColor();
+    }
+
     void DrawQuickEditor(const State& state)
     {
         const ImVec2 display = ImGui::GetIO().DisplaySize;
@@ -1927,7 +1959,7 @@ namespace cmm
         ImGui::SetNextWindowPos({std::clamp(EditorAnchor.x, 8.0f, std::max(8.0f, display.x - 348*scale)),
                                  std::clamp(EditorAnchor.y, 8.0f, std::max(8.0f, display.y - 500*scale))}, ImGuiCond_Appearing);
         const bool visible = ImGui::Begin(UiLabel("Edit marker###AtlasQuickEditor").c_str(), &PopupVisible,
-            ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar);
+            ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
         EndWindow window;
         ImGui::SetWindowFontScale(.90f);
         if (!visible) return;
@@ -1945,6 +1977,7 @@ namespace cmm
         if (IsWvWMap(state.mapType)) DrawWvWIconChoices(true);
         ImGui::SetNextItemWidth(-1);
         FolderSelector("##QuickFolder", state.character, PendingFolderId);
+        DrawQuickFolderCreation();
         if (IsWvWMap(state.mapType) && ImGui::TreeNode(UiLabel("World position").c_str()))
         {
             if (PendingWorldPosition)
@@ -2012,7 +2045,7 @@ namespace cmm
         ImGui::SetNextWindowPos({std::clamp(EditorAnchor.x, 8.0f, std::max(8.0f, display.x - 348*scale)),
                                  std::clamp(EditorAnchor.y, 8.0f, std::max(8.0f, display.y - 620*scale))}, ImGuiCond_Appearing);
         // Use a normal window so hidden overlays cannot retain modal input.
-        const bool visible = ImGui::Begin("Vekk's Atlas###AtlasMarkerEditor", &PopupVisible, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar);
+        const bool visible = ImGui::Begin("Vekk's Atlas###AtlasMarkerEditor", &PopupVisible, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysVerticalScrollbar);
         EndWindow window;
         ImGui::SetWindowFontScale(.90f);
         if (visible)
@@ -2030,6 +2063,7 @@ namespace cmm
             ImGui::TextUnformatted(Tr("Folder"));
             ImGui::SetNextItemWidth(-1);
             FolderSelector("##MarkerFolder", state.character, PendingFolderId);
+            DrawQuickFolderCreation();
             DrawWorldHeightEditor(state);
             ImGui::Spacing();
             if (ImGui::Button(UiLabel("Cancel").c_str(), {120*scale,28*scale})) { PopupVisible = false; FolderManagerVisible = false; SettingsVisible = false; }
@@ -2084,11 +2118,12 @@ namespace cmm
         CapturingShortcut.store(ShortcutCapture::None, std::memory_order_release);
         if (packet & (1u << 20)) { ShortcutMessage = Tr("Shortcut capture canceled."); return; }
         Shortcut shortcut = packet & (1u << 19) ? Shortcut{} : UnpackShortcut(packet);
-        if (MatchesShortcut({'N',false,true,true},shortcut.key,shortcut.alt,shortcut.ctrl,shortcut.shift))
-        { ShortcutMessage=Tr("Ctrl+Shift+N is reserved for Pathing."); return; }
-        Shortcut& destination = target == ShortcutCapture::Placement ? AtlasPreferences.placementShortcut : AtlasPreferences.settingsShortcut;
-        const Shortcut& other = target == ShortcutCapture::Placement ? AtlasPreferences.settingsShortcut : AtlasPreferences.placementShortcut;
-        if (shortcut.key && PackShortcut(shortcut) == PackShortcut(other))
+        Shortcut& destination = target == ShortcutCapture::Placement ? AtlasPreferences.placementShortcut :
+            target == ShortcutCapture::Pathing ? AtlasPreferences.pathingShortcut : AtlasPreferences.settingsShortcut;
+        const Shortcut* shortcuts[]{&AtlasPreferences.placementShortcut, &AtlasPreferences.settingsShortcut, &AtlasPreferences.pathingShortcut};
+        if (shortcut.key && std::any_of(std::begin(shortcuts), std::end(shortcuts), [&](const Shortcut* other) {
+            return other != &destination && PackShortcut(shortcut) == PackShortcut(*other);
+        }))
         {
             ShortcutMessage = Tr("That shortcut is already assigned to another Atlas action.");
             return;
@@ -2117,7 +2152,8 @@ namespace cmm
         ImGui::SameLine();
         if (ImGui::SmallButton(Tr("Clear")))
         {
-            Shortcut& destination = target == ShortcutCapture::Placement ? AtlasPreferences.placementShortcut : AtlasPreferences.settingsShortcut;
+            Shortcut& destination = target == ShortcutCapture::Placement ? AtlasPreferences.placementShortcut :
+                target == ShortcutCapture::Pathing ? AtlasPreferences.pathingShortcut : AtlasPreferences.settingsShortcut;
             destination = {};
             SyncShortcutState();
             CapturingShortcut.store(ShortcutCapture::None, std::memory_order_release);
@@ -2274,6 +2310,7 @@ namespace cmm
             DrawShortcutRow("Place marker", ShortcutCapture::Placement, AtlasPreferences.placementShortcut);
             ImGui::TextWrapped(Tr("PvE: place at the 3D cursor. WvW: save your character's position."));
             DrawShortcutRow("Open Atlas settings", ShortcutCapture::Settings, AtlasPreferences.settingsShortcut);
+            DrawShortcutRow("Open Pathing", ShortcutCapture::Pathing, AtlasPreferences.pathingShortcut);
             ImGui::TextDisabled(Tr("Press Escape to cancel capture. Backspace or Delete clears the shortcut."));
             if (!ShortcutMessage.empty()) ImGui::TextWrapped("%s", ShortcutMessage.c_str());
             ImGui::Separator();
@@ -2291,7 +2328,9 @@ namespace cmm
         ProcessCapturedShortcut();
         const float scale = AtlasUiScale(state.uiScale);
         AtlasTheme theme(scale);
-        SettingsWindowSize = {410.0f * scale, 360.0f * scale};
+        const auto display = ImGui::GetIO().DisplaySize;
+        SettingsWindowSize = {std::min(440.f * scale, std::max(100.f, display.x-16)), std::min(580.f * scale, std::max(100.f, display.y-16))};
+        ImGui::SetNextWindowSizeConstraints({std::min(340.f*scale,SettingsWindowSize.x),100}, {std::max(100.f,display.x-16),std::max(100.f,display.y-16)});
         ImGui::SetNextWindowSize(SettingsWindowSize, ImGuiCond_Appearing);
         if (PopupVisible) ImGui::SetNextWindowPos(AttachedWindowPosition(SettingsWindowSize, scale), ImGuiCond_Appearing);
         else if (QuickAccessAvailable())
@@ -2305,7 +2344,7 @@ namespace cmm
             ImGui::SetNextWindowPos(position, ImGuiCond_Appearing);
         }
         const bool visible = ImGui::Begin(UiLabel("Vekk's Atlas Settings###AtlasSettings").c_str(), &SettingsVisible,
-            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings);
+            ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysVerticalScrollbar);
         EndWindow window;
         ImGui::SetWindowFontScale(.90f);
         if (!visible) return;
@@ -2323,7 +2362,7 @@ namespace cmm
             SettingsShareMessage.clear();
             MarkDirty();
         }
-        KeepCurrentWindowOnScreen(nullptr, &SettingsWindowSize);
+        KeepCurrentWindowOnScreen(nullptr, &SettingsWindowSize, true);
     }
 
     void DrawFolderManager(const State& state)
@@ -2335,9 +2374,11 @@ namespace cmm
         const float scale = AtlasUiScale(state.uiScale);
         const auto display = ImGui::GetIO().DisplaySize;
         AtlasTheme theme(scale);
-        ImGui::SetNextWindowSize({std::min(600*scale,display.x-24),std::min(440*scale,display.y-24)}, ImGuiCond_Appearing);
+        FolderWindowSize = {std::min(640*scale,std::max(100.f,display.x-24)),std::min(650*scale,std::max(100.f,display.y-24))};
+        ImGui::SetNextWindowSize(FolderWindowSize, ImGuiCond_Appearing);
+        ImGui::SetNextWindowSizeConstraints({std::min(400.f*scale,FolderWindowSize.x),100}, {std::max(100.f,display.x-16),std::max(100.f,display.y-16)});
         ImGui::SetNextWindowPos(AttachedWindowPosition(FolderWindowSize, scale), ImGuiCond_Appearing);
-        const bool visible = ImGui::Begin(UiLabel("Vekk's Atlas Folders###AtlasFolders").c_str(), &FolderManagerVisible, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings);
+        const bool visible = ImGui::Begin(UiLabel("Vekk's Atlas Folders###AtlasFolders").c_str(), &FolderManagerVisible, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysVerticalScrollbar);
         EndWindow window;
         ImGui::SetWindowFontScale(.90f);
         if (!visible) return;
@@ -2384,8 +2425,14 @@ namespace cmm
             { PendingFolderImport.reset(); PendingFolderImportTarget.clear(); ManagerMessage.clear(); }
         }
         ImGui::TextDisabled(Tr("Folders                                             Folder markers"));
+        const auto visibleFolderCount = 1 + std::count_if(Folders.begin(), Folders.end(), [&](const Folder& folder) {
+            return folder.character == state.character;
+        });
+        const float listHeight = std::clamp(std::max(static_cast<float>(visibleFolderCount) * 46*scale,
+            static_cast<float>(folderCounts[ManagerFolderId]) * (44*scale + ImGui::GetStyle().ItemSpacing.y)) + 20*scale,
+            100*scale, std::max(100*scale, display.y-400*scale));
         {
-            ImGui::BeginChild("##FolderList", {190*scale,250*scale}, true);
+            ImGui::BeginChild("##FolderList", {190*scale,listHeight}, true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
             EndChild child;
             bool unfiledVisible = !UnfiledVisibility.contains(state.character) || UnfiledVisibility[state.character];
             if (EyeButton("UnfiledVisible", unfiledVisible, scale))
@@ -2414,7 +2461,7 @@ namespace cmm
         }
         ImGui::SameLine();
         {
-            ImGui::BeginChild("##FolderMarkers", {0,250*scale}, true);
+            ImGui::BeginChild("##FolderMarkers", {0,listHeight}, true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
             EndChild child;
             for (const auto& marker : Markers)
                 if (marker.character == state.character && marker.folderId == ManagerFolderId) listedMarkers.push_back(&marker);
@@ -2497,7 +2544,7 @@ namespace cmm
         }
         if (!ManagerMessage.empty()) ImGui::TextWrapped("%s", ManagerMessage.c_str());
         if (!StorageError.empty()) ImGui::TextWrapped(Tr("Save status: %s"), StorageError.c_str());
-        KeepCurrentWindowOnScreen(nullptr, &FolderWindowSize);
+        KeepCurrentWindowOnScreen(nullptr, &FolderWindowSize, true);
     }
 
     void DrawLauncher(const State& state)
@@ -2756,7 +2803,7 @@ namespace cmm
             const Shortcut pressed{static_cast<uint16_t>(wParam), (GetKeyState(VK_MENU)&0x8000)!=0,
                 (GetKeyState(VK_CONTROL)&0x8000)!=0, (GetKeyState(VK_SHIFT)&0x8000)!=0};
             const uint32_t packed = PackShortcut(pressed);
-            if (MatchesShortcut({'N',false,true,true},pressed.key,pressed.alt,pressed.ctrl,pressed.shift))
+            if (packed == ActivePathingShortcut.load(std::memory_order_acquire) && pressed.key)
             { PendingRaidToggle.store(true,std::memory_order_release); return 0; }
             if (packed == ActiveSettingsShortcut.load(std::memory_order_acquire) && pressed.key)
             { PendingSettingsToggle.store(true, std::memory_order_release); return 0; }
@@ -2968,7 +3015,7 @@ namespace cmm
     void Options()
     {
         std::lock_guard lock(StateMutex);
-        ImGui::TextUnformatted("Vekk's Atlas 1.1.10");
+        ImGui::TextUnformatted("Vekk's Atlas 1.1.11");
         ImGui::TextUnformatted("Leir.6218");
         ImGui::TextWrapped("AI Notice: developed by Leir.6218 with AI assistance.");
         if (!Ready.load())
@@ -3046,7 +3093,7 @@ namespace cmm
         Api->GUI_Register(RT_Render, Render); RenderRegistered = true;
         Api->GUI_Register(RT_OptionsRender, Options); OptionsRegistered = true;
         if (Api->WndProc_Register) { Api->WndProc_Register(InputCallback); InputRegistered = true; }
-        if (Api->Log) Api->Log(LOGL_INFO, AddonName, "Vekk's Atlas 1.1.10 loaded; WvW markers use saved MumbleLink world positions; WvW map overlays are disabled.");
+        if (Api->Log) Api->Log(LOGL_INFO, AddonName, "Vekk's Atlas 1.1.11 loaded; WvW markers use saved MumbleLink world positions; WvW map overlays are disabled.");
         }
         catch (const std::exception& error)
         {
@@ -3069,6 +3116,7 @@ namespace cmm
         CapturedShortcut.store(0, std::memory_order_release);
         ActivePlacementShortcut.store(0, std::memory_order_release);
         ActiveSettingsShortcut.store(0, std::memory_order_release);
+        ActivePathingShortcut.store(0, std::memory_order_release);
         RealTimeApi.store(nullptr, std::memory_order_release);
         if (Api && QuickAccessRegistered && Api->QuickAccess_Remove) Api->QuickAccess_Remove(QuickAccessId);
         QuickAccessRegistered = false;
@@ -3130,7 +3178,7 @@ extern "C" __declspec(dllexport) AddonDefinition_t* GetAddonDef()
     definition.Signature = static_cast<uint32_t>(-42424121);
     definition.APIVersion = NEXUS_API_VERSION;
     definition.Name = cmm::AddonName;
-    definition.Version = {1, 1, 10, 0};
+    definition.Version = {1, 1, 11, 0};
     definition.Author = "Leir.6218";
     definition.Description = "Personal map, minimap, WvW and 3D light markers with optional RTAPI cursor placement.";
     definition.Load = cmm::Load;

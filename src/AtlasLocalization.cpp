@@ -9,6 +9,8 @@ namespace cmm
         std::atomic<Language> CurrentLanguage{Language::English};
         struct Translation { const char* en; const char* es; const char* de; };
         constexpr Translation Catalog[] = {
+            {"Folder name", "Nombre de carpeta", "Ordnername"},
+            {"Enter a name to create a marker folder when you save.", "Si escribes un nombre aquí, se creará una carpeta de marcadores al guardar.", "Gib einen Namen ein, um beim Speichern einen Markierungsordner zu erstellen."},
             {"Recording stopped: gameplay data unavailable.", "Grabación detenida: datos del juego no disponibles.", "Aufzeichnung beendet: Spieldaten nicht verfügbar."},
             {"Select Pathing Project", "Seleccionar proyecto", "Pfadprojekt auswählen"},
             {"Projects", "Proyectos", "Projekte"},

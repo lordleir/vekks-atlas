@@ -1,4 +1,4 @@
-# Install and use Vekk's Atlas 1.1.10
+# Install and use Vekk's Atlas 1.1.11
 
 Requires Windows x64, Guild Wars 2 and Nexus.
 
