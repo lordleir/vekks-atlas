@@ -1,0 +1,4346 @@
+[
+  {
+    "id": 15,
+    "name": "Valle de la Reina"
+  },
+  {
+    "id": 17,
+    "name": "Interior Harathi"
+  },
+  {
+    "id": 18,
+    "name": "Linde de la Divinidad"
+  },
+  {
+    "id": 19,
+    "name": "Llanuras de Ashford"
+  },
+  {
+    "id": 20,
+    "name": "Estepas Crestafulgurante"
+  },
+  {
+    "id": 21,
+    "name": "Campos de la Ruina"
+  },
+  {
+    "id": 22,
+    "name": "Colina del Corazón de Fuego"
+  },
+  {
+    "id": 23,
+    "name": "Colinas Kessex"
+  },
+  {
+    "id": 24,
+    "name": "Campos de Gendarran"
+  },
+  {
+    "id": 25,
+    "name": "Fronteras de Hierro"
+  },
+  {
+    "id": 26,
+    "name": "Acantilados de Guaridadraga"
+  },
+  {
+    "id": 27,
+    "name": "Paso de Lornar"
+  },
+  {
+    "id": 28,
+    "name": "Colinas del Caminante"
+  },
+  {
+    "id": 29,
+    "name": "Cataratas de Linarbórea"
+  },
+  {
+    "id": 30,
+    "name": "Estrecho de Gorjaescarcha"
+  },
+  {
+    "id": 31,
+    "name": "Cúmulos de Guaridanieve"
+  },
+  {
+    "id": 32,
+    "name": "Meseta de Diessa"
+  },
+  {
+    "id": 33,
+    "name": "Catacumbas Ascalonianas"
+  },
+  {
+    "id": 34,
+    "name": "Bosque de Caledon"
+  },
+  {
+    "id": 35,
+    "name": "Provincia de Métrica"
+  },
+  {
+    "id": 36,
+    "name": "Catacumbas Ascalonianas"
+  },
+  {
+    "id": 37,
+    "name": "Incendio provocado en el orfanato"
+  },
+  {
+    "id": 38,
+    "name": "Campos de batalla eternos"
+  },
+  {
+    "id": 39,
+    "name": "Monte Vorágine"
+  },
+  {
+    "id": 50,
+    "name": "Arco del León"
+  },
+  {
+    "id": 51,
+    "name": "Estrechos de la Devastación"
+  },
+  {
+    "id": 53,
+    "name": "Pantano de las Centellas"
+  },
+  {
+    "id": 54,
+    "name": "Selvas Brisbanas"
+  },
+  {
+    "id": 55,
+    "name": "El hospital en peligro"
+  },
+  {
+    "id": 61,
+    "name": "Infiltración"
+  },
+  {
+    "id": 62,
+    "name": "Ribera Maldita"
+  },
+  {
+    "id": 63,
+    "name": "Abrazo del Pesar"
+  },
+  {
+    "id": 64,
+    "name": "Abrazo del Pesar"
+  },
+  {
+    "id": 65,
+    "name": "Salto de Malchor"
+  },
+  {
+    "id": 66,
+    "name": "Ciudadela de la Llama"
+  },
+  {
+    "id": 67,
+    "name": "La Pérgola del Crepúsculo"
+  },
+  {
+    "id": 68,
+    "name": "La Pérgola del Crepúsculo"
+  },
+  {
+    "id": 69,
+    "name": "Ciudadela de la Llama"
+  },
+  {
+    "id": 70,
+    "name": "El Honor de las Olas"
+  },
+  {
+    "id": 71,
+    "name": "El Honor de las Olas"
+  },
+  {
+    "id": 73,
+    "name": "Costa Mareasangrienta"
+  },
+  {
+    "id": 75,
+    "name": "Mansión de Caudecus"
+  },
+  {
+    "id": 76,
+    "name": "Mansión de Caudecus"
+  },
+  {
+    "id": 77,
+    "name": "Registro de las instalaciones"
+  },
+  {
+    "id": 79,
+    "name": "El informante"
+  },
+  {
+    "id": 80,
+    "name": "Una reunión social"
+  },
+  {
+    "id": 81,
+    "name": "Crisol de la Eternidad"
+  },
+  {
+    "id": 82,
+    "name": "Crisol de la Eternidad"
+  },
+  {
+    "id": 89,
+    "name": "En busca de los culpables"
+  },
+  {
+    "id": 91,
+    "name": "La Arboleda"
+  },
+  {
+    "id": 92,
+    "name": "El juicio de Julius Zamon"
+  },
+  {
+    "id": 95,
+    "name": " - Tierras Fronterizas alpinas"
+  },
+  {
+    "id": 96,
+    "name": " -Tierras Fronterizas alpinas"
+  },
+  {
+    "id": 97,
+    "name": "Infiltración"
+  },
+  {
+    "id": 110,
+    "name": "Los peligros de la amistad"
+  },
+  {
+    "id": 111,
+    "name": "Victoria o muerte"
+  },
+  {
+    "id": 112,
+    "name": "La ciudad en ruinas de Arah"
+  },
+  {
+    "id": 113,
+    "name": "Medicina desesperada"
+  },
+  {
+    "id": 120,
+    "name": "El Comandante"
+  },
+  {
+    "id": 138,
+    "name": "Defensa de Shaemoor"
+  },
+  {
+    "id": 139,
+    "name": "Rata Sum"
+  },
+  {
+    "id": 140,
+    "name": "La botica"
+  },
+  {
+    "id": 142,
+    "name": "De incógnito"
+  },
+  {
+    "id": 143,
+    "name": "De incógnito"
+  },
+  {
+    "id": 144,
+    "name": "El bien común"
+  },
+  {
+    "id": 145,
+    "name": "El rescate"
+  },
+  {
+    "id": 147,
+    "name": "Partiendo filos"
+  },
+  {
+    "id": 148,
+    "name": "La caída de la Compañía del Halcón"
+  },
+  {
+    "id": 149,
+    "name": "La caída de la Compañía del Halcón"
+  },
+  {
+    "id": 152,
+    "name": "Enfrentarse al capitán Tervelan"
+  },
+  {
+    "id": 153,
+    "name": "En busca de la ayuda de Logan"
+  },
+  {
+    "id": 154,
+    "name": "En busca de la ayuda de Logan"
+  },
+  {
+    "id": 157,
+    "name": "Acusación"
+  },
+  {
+    "id": 159,
+    "name": "Acusación"
+  },
+  {
+    "id": 161,
+    "name": "Liberación"
+  },
+  {
+    "id": 162,
+    "name": "Voces del pasado"
+  },
+  {
+    "id": 163,
+    "name": "Voces del pasado"
+  },
+  {
+    "id": 171,
+    "name": "Desgarrar el Manto"
+  },
+  {
+    "id": 172,
+    "name": "Desgarrar el Manto"
+  },
+  {
+    "id": 178,
+    "name": "El hipnomolino flotante"
+  },
+  {
+    "id": 179,
+    "name": "El hipnomolino flotante"
+  },
+  {
+    "id": 180,
+    "name": "El hipnomolino flotante"
+  },
+  {
+    "id": 182,
+    "name": "Escuela de payasos"
+  },
+  {
+    "id": 184,
+    "name": "El taller del artista"
+  },
+  {
+    "id": 185,
+    "name": "En el bosque"
+  },
+  {
+    "id": 186,
+    "name": "El maestro de ceremonias"
+  },
+  {
+    "id": 190,
+    "name": "Las órdenes de Tyria"
+  },
+  {
+    "id": 191,
+    "name": "Las órdenes de Tyria"
+  },
+  {
+    "id": 192,
+    "name": "Fuerza bruta"
+  },
+  {
+    "id": 193,
+    "name": "Mortus Virge"
+  },
+  {
+    "id": 195,
+    "name": "Muelle de Triskel"
+  },
+  {
+    "id": 196,
+    "name": "El rastro del serafín"
+  },
+  {
+    "id": 198,
+    "name": "Portavoz de los muertos"
+  },
+  {
+    "id": 199,
+    "name": "La triste historia del \"Voraz\""
+  },
+  {
+    "id": 201,
+    "name": "El ataque de Kellach"
+  },
+  {
+    "id": 202,
+    "name": "La justicia de la reina"
+  },
+  {
+    "id": 203,
+    "name": "La trampa"
+  },
+  {
+    "id": 211,
+    "name": "Los mejores planes"
+  },
+  {
+    "id": 212,
+    "name": "De vuelta en casa"
+  },
+  {
+    "id": 215,
+    "name": "La Llamada del Tribuno"
+  },
+  {
+    "id": 216,
+    "name": "La Llamada del Tribuno"
+  },
+  {
+    "id": 217,
+    "name": "La Llamada del Tribuno"
+  },
+  {
+    "id": 218,
+    "name": "Ciudadela Negra"
+  },
+  {
+    "id": 222,
+    "name": "Espía por espía"
+  },
+  {
+    "id": 224,
+    "name": "Perros de desguace"
+  },
+  {
+    "id": 225,
+    "name": "Espía por espía"
+  },
+  {
+    "id": 226,
+    "name": "Convaleciente"
+  },
+  {
+    "id": 232,
+    "name": "Sangre derramada"
+  },
+  {
+    "id": 234,
+    "name": "Mosquete perforafantasmas"
+  },
+  {
+    "id": 237,
+    "name": "El puño de hierro de la legión"
+  },
+  {
+    "id": 238,
+    "name": "La Llama avanza"
+  },
+  {
+    "id": 239,
+    "name": "La Llama avanza"
+  },
+  {
+    "id": 242,
+    "name": "Prueba tu metal"
+  },
+  {
+    "id": 244,
+    "name": "Rápido y en silencio"
+  },
+  {
+    "id": 248,
+    "name": "Distrito de Salma (Hogar)"
+  },
+  {
+    "id": 249,
+    "name": "Una herencia inusual"
+  },
+  {
+    "id": 250,
+    "name": "Laberinto Rocaviento"
+  },
+  {
+    "id": 251,
+    "name": "Enfangados"
+  },
+  {
+    "id": 252,
+    "name": "Enfangados"
+  },
+  {
+    "id": 254,
+    "name": "Fuerza mortal"
+  },
+  {
+    "id": 255,
+    "name": "Artillería perforafantasmas"
+  },
+  {
+    "id": 256,
+    "name": "Sin negociación"
+  },
+  {
+    "id": 257,
+    "name": "Rescatando chatarra"
+  },
+  {
+    "id": 258,
+    "name": "Rescatando chatarra"
+  },
+  {
+    "id": 259,
+    "name": "En las ruinas"
+  },
+  {
+    "id": 260,
+    "name": "En las ruinas"
+  },
+  {
+    "id": 261,
+    "name": "Cantina La Jarra Rota"
+  },
+  {
+    "id": 262,
+    "name": "Cadena de mando"
+  },
+  {
+    "id": 263,
+    "name": "Cadena de mando"
+  },
+  {
+    "id": 264,
+    "name": "Hora de un ascenso"
+  },
+  {
+    "id": 267,
+    "name": "El final del trayecto"
+  },
+  {
+    "id": 269,
+    "name": "Usuarios de la magia"
+  },
+  {
+    "id": 271,
+    "name": "Contención de la rabia"
+  },
+  {
+    "id": 272,
+    "name": "Contención de la rabia"
+  },
+  {
+    "id": 274,
+    "name": "Operación: Baluarte"
+  },
+  {
+    "id": 275,
+    "name": "Deserción"
+  },
+  {
+    "id": 276,
+    "name": "Lamento de Humano"
+  },
+  {
+    "id": 282,
+    "name": "Fe equivocada"
+  },
+  {
+    "id": 283,
+    "name": "Más espeso que el agua"
+  },
+  {
+    "id": 284,
+    "name": "Baja por conducta deshonrosa"
+  },
+  {
+    "id": 287,
+    "name": "En busca de la verdad"
+  },
+  {
+    "id": 288,
+    "name": "El encendido de las balizas"
+  },
+  {
+    "id": 290,
+    "name": "Avivando la Llama"
+  },
+  {
+    "id": 294,
+    "name": "Una encrucijada en el camino"
+  },
+  {
+    "id": 295,
+    "name": "Los pecados del padre"
+  },
+  {
+    "id": 297,
+    "name": "Adornos de cementerio"
+  },
+  {
+    "id": 326,
+    "name": "Hoelbrak"
+  },
+  {
+    "id": 327,
+    "name": "Medicina desesperada"
+  },
+  {
+    "id": 330,
+    "name": "Cuartel general de los Serafines"
+  },
+  {
+    "id": 334,
+    "name": "Pelea de barricas"
+  },
+  {
+    "id": 335,
+    "name": "Isla Garra"
+  },
+  {
+    "id": 336,
+    "name": "Capellanía de los Secretos"
+  },
+  {
+    "id": 350,
+    "name": "Corazón de la Niebla"
+  },
+  {
+    "id": 363,
+    "name": "La infiltración"
+  },
+  {
+    "id": 364,
+    "name": "El Manto destapado"
+  },
+  {
+    "id": 365,
+    "name": "Cenizas del pasado"
+  },
+  {
+    "id": 371,
+    "name": "Cantón del Héroe (Hogar)"
+  },
+  {
+    "id": 372,
+    "name": "Alojamientos de los Tribunos de Sangre"
+  },
+  {
+    "id": 373,
+    "name": "El núcleo de mando"
+  },
+  {
+    "id": 374,
+    "name": "Desván de Knut Osoblanco"
+  },
+  {
+    "id": 375,
+    "name": "Hogar del Cazador (Hogar)"
+  },
+  {
+    "id": 376,
+    "name": "Finca del Cantero"
+  },
+  {
+    "id": 378,
+    "name": "Sala del Trono de la Reina"
+  },
+  {
+    "id": 379,
+    "name": "La Gran Caza"
+  },
+  {
+    "id": 380,
+    "name": "Un arma de leyenda"
+  },
+  {
+    "id": 381,
+    "name": "El último de los reyes gigantes"
+  },
+  {
+    "id": 382,
+    "name": "Los discípulos del Dragón"
+  },
+  {
+    "id": 385,
+    "name": "Un arma de leyenda"
+  },
+  {
+    "id": 386,
+    "name": "Ecos del pasado"
+  },
+  {
+    "id": 387,
+    "name": "Espíritus salvajes"
+  },
+  {
+    "id": 388,
+    "name": "Desde los cielos"
+  },
+  {
+    "id": 389,
+    "name": "Ecos del pasado"
+  },
+  {
+    "id": 390,
+    "name": "El crepúsculo del lobo"
+  },
+  {
+    "id": 391,
+    "name": "La rabia de los minotauros"
+  },
+  {
+    "id": 392,
+    "name": "Un cachorro enfermo"
+  },
+  {
+    "id": 393,
+    "name": "A través del Velo"
+  },
+  {
+    "id": 394,
+    "name": "Una trampa frustrada"
+  },
+  {
+    "id": 396,
+    "name": "La reverencia del Cuervo"
+  },
+  {
+    "id": 397,
+    "name": "Un buen trago se merece otro"
+  },
+  {
+    "id": 399,
+    "name": "La forma del espíritu"
+  },
+  {
+    "id": 400,
+    "name": "En la Niebla"
+  },
+  {
+    "id": 401,
+    "name": "A través del Velo"
+  },
+  {
+    "id": 405,
+    "name": "Bendición de la Osa"
+  },
+  {
+    "id": 407,
+    "name": "El havroun del lobo"
+  },
+  {
+    "id": 410,
+    "name": "Minotauro desenfrenado"
+  },
+  {
+    "id": 411,
+    "name": "Minotauro desenfrenado"
+  },
+  {
+    "id": 412,
+    "name": "Visitantes inesperados"
+  },
+  {
+    "id": 413,
+    "name": "Problemas a la vista"
+  },
+  {
+    "id": 414,
+    "name": "Un nuevo rival"
+  },
+  {
+    "id": 415,
+    "name": "Visitantes inesperados"
+  },
+  {
+    "id": 416,
+    "name": "Barricada"
+  },
+  {
+    "id": 417,
+    "name": "Ataque a Topovia"
+  },
+  {
+    "id": 418,
+    "name": "No dejes tirados tus juguetes"
+  },
+  {
+    "id": 419,
+    "name": "Un nuevo rival"
+  },
+  {
+    "id": 420,
+    "name": "Primer ataque"
+  },
+  {
+    "id": 421,
+    "name": "El golpe de gracia"
+  },
+  {
+    "id": 422,
+    "name": "Las semifinales"
+  },
+  {
+    "id": 423,
+    "name": "La lucha del campeonato"
+  },
+  {
+    "id": 424,
+    "name": "La lucha del campeonato"
+  },
+  {
+    "id": 425,
+    "name": "La máquina en acción"
+  },
+  {
+    "id": 427,
+    "name": "Entre los kodan"
+  },
+  {
+    "id": 428,
+    "name": "Problemas a la vista"
+  },
+  {
+    "id": 429,
+    "name": "La rabia de los minotauros"
+  },
+  {
+    "id": 430,
+    "name": "Oscuridad en Drakentelt"
+  },
+  {
+    "id": 432,
+    "name": "Lucha contra la Pesadilla"
+  },
+  {
+    "id": 434,
+    "name": "Mantener el equilibrio"
+  },
+  {
+    "id": 435,
+    "name": "El fin justifica los medios"
+  },
+  {
+    "id": 436,
+    "name": "Tecnología draga"
+  },
+  {
+    "id": 439,
+    "name": "Erudito subterráneo"
+  },
+  {
+    "id": 440,
+    "name": "Asalto draga"
+  },
+  {
+    "id": 441,
+    "name": "El escondite draga"
+  },
+  {
+    "id": 444,
+    "name": "Sabotaje"
+  },
+  {
+    "id": 447,
+    "name": "Descifrador"
+  },
+  {
+    "id": 449,
+    "name": "Armamento"
+  },
+  {
+    "id": 453,
+    "name": "Asalto en la colina"
+  },
+  {
+    "id": 454,
+    "name": "Guerra silenciosa"
+  },
+  {
+    "id": 455,
+    "name": "Cortar la cabeza"
+  },
+  {
+    "id": 458,
+    "name": "La furia de los muertos"
+  },
+  {
+    "id": 459,
+    "name": "Una encrucijada en el camino"
+  },
+  {
+    "id": 460,
+    "name": "Calabozo de la Ciudadela"
+  },
+  {
+    "id": 464,
+    "name": "Efigies de tribunos"
+  },
+  {
+    "id": 465,
+    "name": "Los pecados del padre"
+  },
+  {
+    "id": 466,
+    "name": "Fe equivocada"
+  },
+  {
+    "id": 469,
+    "name": "Gladiador"
+  },
+  {
+    "id": 470,
+    "name": "Adornos de cementerio"
+  },
+  {
+    "id": 471,
+    "name": "Plaga de muertos vivientes"
+  },
+  {
+    "id": 474,
+    "name": "Susurros en la oscuridad"
+  },
+  {
+    "id": 476,
+    "name": "Investigación peligrosa"
+  },
+  {
+    "id": 477,
+    "name": "En busca de respuestas"
+  },
+  {
+    "id": 480,
+    "name": "Defendiendo la fortaleza"
+  },
+  {
+    "id": 481,
+    "name": "Detección de muertos vivientes"
+  },
+  {
+    "id": 483,
+    "name": "Siempre alerta"
+  },
+  {
+    "id": 485,
+    "name": "Investigar y destruir"
+  },
+  {
+    "id": 487,
+    "name": "Susurros de venganza"
+  },
+  {
+    "id": 488,
+    "name": "Instinto asesino"
+  },
+  {
+    "id": 489,
+    "name": "Reunión con mi mentor"
+  },
+  {
+    "id": 490,
+    "name": "Una frágil paz"
+  },
+  {
+    "id": 492,
+    "name": "No matéis al mensajero"
+  },
+  {
+    "id": 496,
+    "name": "Reunión con mi mentor"
+  },
+  {
+    "id": 497,
+    "name": "Dragar el pasado"
+  },
+  {
+    "id": 498,
+    "name": "Dragar el pasado"
+  },
+  {
+    "id": 499,
+    "name": "Perros de desguace"
+  },
+  {
+    "id": 502,
+    "name": "Asedio del Cuestor"
+  },
+  {
+    "id": 503,
+    "name": "Defensa del Ministro"
+  },
+  {
+    "id": 504,
+    "name": "Llamada al servicio"
+  },
+  {
+    "id": 505,
+    "name": "Llamada al servicio"
+  },
+  {
+    "id": 507,
+    "name": "La burla de la muerte"
+  },
+  {
+    "id": 509,
+    "name": "El descubrimiento de la oscuridad"
+  },
+  {
+    "id": 511,
+    "name": "Sabuesos y presas"
+  },
+  {
+    "id": 512,
+    "name": "Sabuesos y presas"
+  },
+  {
+    "id": 513,
+    "name": "Amor perdido"
+  },
+  {
+    "id": 514,
+    "name": "Salvar al Ciervo"
+  },
+  {
+    "id": 515,
+    "name": "Oculto en la oscuridad"
+  },
+  {
+    "id": 516,
+    "name": "Un buen trabajo echado a perder"
+  },
+  {
+    "id": 517,
+    "name": "Noche negra, Ciervo blanco"
+  },
+  {
+    "id": 518,
+    "name": "La Cámara de Omphalos"
+  },
+  {
+    "id": 519,
+    "name": "Debilidad de corazón"
+  },
+  {
+    "id": 520,
+    "name": "Despertar"
+  },
+  {
+    "id": 521,
+    "name": "Contra la oscuridad"
+  },
+  {
+    "id": 522,
+    "name": "Un truco ingenioso"
+  },
+  {
+    "id": 523,
+    "name": "Raíces profundas enredadas"
+  },
+  {
+    "id": 524,
+    "name": "El corazón de la Pesadilla"
+  },
+  {
+    "id": 525,
+    "name": "Bajo la fría luna"
+  },
+  {
+    "id": 527,
+    "name": "El duelo del Caballero"
+  },
+  {
+    "id": 528,
+    "name": "Martillo y acero"
+  },
+  {
+    "id": 529,
+    "name": "Adonde vaya la vida"
+  },
+  {
+    "id": 532,
+    "name": "Después de la tormenta"
+  },
+  {
+    "id": 533,
+    "name": "Después de la tormenta"
+  },
+  {
+    "id": 534,
+    "name": "Bajo las olas"
+  },
+  {
+    "id": 535,
+    "name": "Dime, espejito mágico"
+  },
+  {
+    "id": 536,
+    "name": "Una visión de la oscuridad"
+  },
+  {
+    "id": 537,
+    "name": "Luz quebrada"
+  },
+  {
+    "id": 538,
+    "name": "Un alma desconocida"
+  },
+  {
+    "id": 539,
+    "name": "Un alma desconocida"
+  },
+  {
+    "id": 540,
+    "name": "Adonde vaya la vida"
+  },
+  {
+    "id": 542,
+    "name": "La raíz del problema"
+  },
+  {
+    "id": 543,
+    "name": "Crecimiento salvaje"
+  },
+  {
+    "id": 544,
+    "name": "Crecimiento salvaje"
+  },
+  {
+    "id": 545,
+    "name": "En busca del zalisco"
+  },
+  {
+    "id": 546,
+    "name": "El enfoque directo"
+  },
+  {
+    "id": 547,
+    "name": "Argucia comercial"
+  },
+  {
+    "id": 548,
+    "name": "El Ojo del sol"
+  },
+  {
+    "id": 549,
+    "name": "La Batalla de Kyhlo"
+  },
+  {
+    "id": 552,
+    "name": "En busca del zalisco"
+  },
+  {
+    "id": 554,
+    "name": "Bosque de Niflhel"
+  },
+  {
+    "id": 556,
+    "name": "Un sueño diferente"
+  },
+  {
+    "id": 557,
+    "name": "Una astilla clavada"
+  },
+  {
+    "id": 558,
+    "name": "Sombra del Árbol"
+  },
+  {
+    "id": 559,
+    "name": "El Ojo del sol"
+  },
+  {
+    "id": 560,
+    "name": "Espinas afiladas"
+  },
+  {
+    "id": 561,
+    "name": "Muros de zarzas"
+  },
+  {
+    "id": 563,
+    "name": "Secretos en la tierra"
+  },
+  {
+    "id": 564,
+    "name": "La flor de la juventud"
+  },
+  {
+    "id": 566,
+    "name": "La manzana podrida"
+  },
+  {
+    "id": 567,
+    "name": "Problema de raíz"
+  },
+  {
+    "id": 569,
+    "name": "La flor de la muerte"
+  },
+  {
+    "id": 570,
+    "name": "En medio del invierno"
+  },
+  {
+    "id": 571,
+    "name": "Maleza enredada"
+  },
+  {
+    "id": 573,
+    "name": "Intelecto explosivo"
+  },
+  {
+    "id": 574,
+    "name": "Tras los pasos de Snaff"
+  },
+  {
+    "id": 575,
+    "name": "Sistema de posicionamiento gólem"
+  },
+  {
+    "id": 576,
+    "name": "Llave inglesa"
+  },
+  {
+    "id": 577,
+    "name": "Desactivando el problema"
+  },
+  {
+    "id": 578,
+    "name": "Lo que hacemos por amor"
+  },
+  {
+    "id": 579,
+    "name": "El Premio Snaff"
+  },
+  {
+    "id": 581,
+    "name": "Un rescate chispeante"
+  },
+  {
+    "id": 582,
+    "name": "Alto mantenimiento"
+  },
+  {
+    "id": 583,
+    "name": "Snaff estaría orgulloso"
+  },
+  {
+    "id": 584,
+    "name": "Recuperación de crédito"
+  },
+  {
+    "id": 586,
+    "name": "Homicidio político"
+  },
+  {
+    "id": 587,
+    "name": "Aquí, allá, en todas partes"
+  },
+  {
+    "id": 588,
+    "name": "Negociaciones de fragmentos"
+  },
+  {
+    "id": 589,
+    "name": "Lecturas en aumento"
+  },
+  {
+    "id": 590,
+    "name": "Snaff estaría orgulloso"
+  },
+  {
+    "id": 591,
+    "name": "Lecturas en aumento"
+  },
+  {
+    "id": 592,
+    "name": "Retraso no previsto"
+  },
+  {
+    "id": 594,
+    "name": "Quédate con tu sociedad"
+  },
+  {
+    "id": 595,
+    "name": "Visitantes no deseados"
+  },
+  {
+    "id": 596,
+    "name": "Donde corresponde"
+  },
+  {
+    "id": 597,
+    "name": "Donde corresponde"
+  },
+  {
+    "id": 598,
+    "name": "Mecha corta"
+  },
+  {
+    "id": 599,
+    "name": "Mecha corta"
+  },
+  {
+    "id": 606,
+    "name": "Sal en la herida"
+  },
+  {
+    "id": 607,
+    "name": "Rienda suelta"
+  },
+  {
+    "id": 608,
+    "name": "Creando problemas"
+  },
+  {
+    "id": 609,
+    "name": "Creando problemas"
+  },
+  {
+    "id": 610,
+    "name": "Riada"
+  },
+  {
+    "id": 611,
+    "name": "Huelo una rata"
+  },
+  {
+    "id": 613,
+    "name": "Obra maestra"
+  },
+  {
+    "id": 614,
+    "name": "Obra maestra"
+  },
+  {
+    "id": 617,
+    "name": "Mal asunto"
+  },
+  {
+    "id": 618,
+    "name": "Prueba beta"
+  },
+  {
+    "id": 619,
+    "name": "Prueba beta"
+  },
+  {
+    "id": 620,
+    "name": "Cualquier ciencia lo suficientemente avanzada"
+  },
+  {
+    "id": 621,
+    "name": "Cualquier ciencia lo suficientemente avanzada"
+  },
+  {
+    "id": 622,
+    "name": "Mala previsión"
+  },
+  {
+    "id": 623,
+    "name": "Espionaje industrial"
+  },
+  {
+    "id": 624,
+    "name": "Una fracción de segundo"
+  },
+  {
+    "id": 625,
+    "name": "Lleva un buen garrote."
+  },
+  {
+    "id": 627,
+    "name": "Reunión con mi mentor"
+  },
+  {
+    "id": 628,
+    "name": "Robo de secretos"
+  },
+  {
+    "id": 629,
+    "name": "Una teoría nueva y atrevida"
+  },
+  {
+    "id": 630,
+    "name": "Falsificación de permisos"
+  },
+  {
+    "id": 631,
+    "name": "Falsificación de permisos"
+  },
+  {
+    "id": 633,
+    "name": "Preparativos"
+  },
+  {
+    "id": 634,
+    "name": "Contención"
+  },
+  {
+    "id": 635,
+    "name": "Contención"
+  },
+  {
+    "id": 636,
+    "name": "Entorno peligroso"
+  },
+  {
+    "id": 638,
+    "name": "Arriba, abajo, al centro y... ¡pa dentro!\n"
+  },
+  {
+    "id": 639,
+    "name": "Arriba, abajo, al centro y... ¡pa dentro!"
+  },
+  {
+    "id": 642,
+    "name": "La vaina de piedra"
+  },
+  {
+    "id": 643,
+    "name": "Mala sangre"
+  },
+  {
+    "id": 644,
+    "name": "Sujeto de prueba"
+  },
+  {
+    "id": 645,
+    "name": "Prueba de campo"
+  },
+  {
+    "id": 646,
+    "name": "La Casa de Caithe"
+  },
+  {
+    "id": 647,
+    "name": "La Terraza del Soñador (Hogar)"
+  },
+  {
+    "id": 648,
+    "name": "La Cámara de Omphalos"
+  },
+  {
+    "id": 649,
+    "name": "Laboratorio Conmemorativo de Snaff"
+  },
+  {
+    "id": 650,
+    "name": "Laboratorio de Desarrollos Aplicados (Hogar)"
+  },
+  {
+    "id": 651,
+    "name": "Nivel del Consejo"
+  },
+  {
+    "id": 652,
+    "name": "Una reunión de mentes"
+  },
+  {
+    "id": 653,
+    "name": "Más poderoso que la espada"
+  },
+  {
+    "id": 654,
+    "name": "Se fueron por ahí"
+  },
+  {
+    "id": 655,
+    "name": "Vías de comunicación"
+  },
+  {
+    "id": 656,
+    "name": "Selvas Indomables"
+  },
+  {
+    "id": 657,
+    "name": "Una manzana al día"
+  },
+  {
+    "id": 658,
+    "name": "Base de operaciones"
+  },
+  {
+    "id": 659,
+    "name": "El regreso del cabecilla perdido"
+  },
+  {
+    "id": 660,
+    "name": "Guardia desperdiciada"
+  },
+  {
+    "id": 662,
+    "name": "Con mascotas y murallas, los corrales dan más caña"
+  },
+  {
+    "id": 663,
+    "name": "Duda"
+  },
+  {
+    "id": 664,
+    "name": "La guarida del falso dios"
+  },
+  {
+    "id": 666,
+    "name": "Hielo malvado"
+  },
+  {
+    "id": 667,
+    "name": "Hielo malvado"
+  },
+  {
+    "id": 668,
+    "name": "Con mascotas y murallas, los corrales dan más caña"
+  },
+  {
+    "id": 669,
+    "name": "Intento de deicidio"
+  },
+  {
+    "id": 670,
+    "name": "Duda"
+  },
+  {
+    "id": 672,
+    "name": "Ratástrofe"
+  },
+  {
+    "id": 673,
+    "name": "La salvación mediante la herejía"
+  },
+  {
+    "id": 674,
+    "name": "Enfurecido y desvergonzado"
+  },
+  {
+    "id": 675,
+    "name": "Celador del pasado"
+  },
+  {
+    "id": 676,
+    "name": "Protesta demasiado"
+  },
+  {
+    "id": 677,
+    "name": "Abriendo el ojo con palanca"
+  },
+  {
+    "id": 678,
+    "name": "El vivero"
+  },
+  {
+    "id": 680,
+    "name": "Convenciendo a los fieles"
+  },
+  {
+    "id": 681,
+    "name": "Evacuación"
+  },
+  {
+    "id": 682,
+    "name": "Selvas Indomables"
+  },
+  {
+    "id": 683,
+    "name": "Sacrificio de campeón"
+  },
+  {
+    "id": 684,
+    "name": "Quien roba a un ladrón"
+  },
+  {
+    "id": 685,
+    "name": "Retorno del Cruzado"
+  },
+  {
+    "id": 686,
+    "name": "Territorios impíos"
+  },
+  {
+    "id": 687,
+    "name": "Los elegidos del sol"
+  },
+  {
+    "id": 691,
+    "name": "Lista para explotar"
+  },
+  {
+    "id": 692,
+    "name": "El último artilugio de Gadd"
+  },
+  {
+    "id": 693,
+    "name": "Ciencia de biblioteca"
+  },
+  {
+    "id": 694,
+    "name": "Rakt y ruina"
+  },
+  {
+    "id": 695,
+    "name": "Actividad sospechosa"
+  },
+  {
+    "id": 696,
+    "name": "Reconocimiento"
+  },
+  {
+    "id": 697,
+    "name": "Contratiempo crítico"
+  },
+  {
+    "id": 698,
+    "name": "La batalla de Isla Garra"
+  },
+  {
+    "id": 699,
+    "name": "Actividad sospechosa"
+  },
+  {
+    "id": 700,
+    "name": "Biblioteca del Priorato"
+  },
+  {
+    "id": 701,
+    "name": "En alerta roja"
+  },
+  {
+    "id": 702,
+    "name": "Más vale prevenir que curar"
+  },
+  {
+    "id": 703,
+    "name": "La oratoria"
+  },
+  {
+    "id": 704,
+    "name": "Campos de muerte"
+  },
+  {
+    "id": 705,
+    "name": "El rito fantasma"
+  },
+  {
+    "id": 706,
+    "name": "La buena pelea"
+  },
+  {
+    "id": 707,
+    "name": "Contrato de defensa"
+  },
+  {
+    "id": 708,
+    "name": "Esquirlas de Orr"
+  },
+  {
+    "id": 709,
+    "name": "El sonido de la lanza Psi"
+  },
+  {
+    "id": 710,
+    "name": "Pronta libertad"
+  },
+  {
+    "id": 711,
+    "name": "La magia apesta"
+  },
+  {
+    "id": 712,
+    "name": "Una luz en la oscuridad"
+  },
+  {
+    "id": 713,
+    "name": "Asedio al Priorato"
+  },
+  {
+    "id": 714,
+    "name": "Bajo asedio"
+  },
+  {
+    "id": 715,
+    "name": "Retribución"
+  },
+  {
+    "id": 716,
+    "name": "Retribución"
+  },
+  {
+    "id": 719,
+    "name": "El sonido de la lanza Psi"
+  },
+  {
+    "id": 726,
+    "name": "Baño de sangre"
+  },
+  {
+    "id": 727,
+    "name": "Trauma de combate"
+  },
+  {
+    "id": 728,
+    "name": "Extracción volcánica"
+  },
+  {
+    "id": 729,
+    "name": "Adquisición de munición"
+  },
+  {
+    "id": 730,
+    "name": "Hasta el núcleo"
+  },
+  {
+    "id": 731,
+    "name": "La batalla de Fuerte Trinidad"
+  },
+  {
+    "id": 732,
+    "name": "Torre abajo"
+  },
+  {
+    "id": 733,
+    "name": "La forja del Pacto"
+  },
+  {
+    "id": 735,
+    "name": "Cautivos dispuestos"
+  },
+  {
+    "id": 736,
+    "name": "Reuniendo la verdad"
+  },
+  {
+    "id": 737,
+    "name": "Rompiendo el barco de hueso"
+  },
+  {
+    "id": 738,
+    "name": "Liberando a Apatia"
+  },
+  {
+    "id": 739,
+    "name": "Liberando a Apatia"
+  },
+  {
+    "id": 743,
+    "name": "Tras el culpable"
+  },
+  {
+    "id": 744,
+    "name": "Una misión triste"
+  },
+  {
+    "id": 745,
+    "name": "Rompiendo las cadenas"
+  },
+  {
+    "id": 746,
+    "name": "Haciendo justicia"
+  },
+  {
+    "id": 747,
+    "name": "Interceptando el orbe"
+  },
+  {
+    "id": 750,
+    "name": "Cierra el ojo"
+  },
+  {
+    "id": 751,
+    "name": "A través del espejo"
+  },
+  {
+    "id": 758,
+    "name": "Catedral del Silencio"
+  },
+  {
+    "id": 760,
+    "name": "Matar de hambre a la bestia"
+  },
+  {
+    "id": 761,
+    "name": "Robo de luz"
+  },
+  {
+    "id": 762,
+    "name": "Cazadores y presa"
+  },
+  {
+    "id": 763,
+    "name": "La última travesía de Romke"
+  },
+  {
+    "id": 764,
+    "name": "Órdenes de marcha"
+  },
+  {
+    "id": 766,
+    "name": "Suministro aéreo"
+  },
+  {
+    "id": 767,
+    "name": "Estado de descomposición"
+  },
+  {
+    "id": 768,
+    "name": "Lo que el ojo sí ve"
+  },
+  {
+    "id": 769,
+    "name": "Recluta los Barcos Muertos"
+  },
+  {
+    "id": 772,
+    "name": "Osario de muertos inquietos"
+  },
+  {
+    "id": 775,
+    "name": "El templo del dios olvidado"
+  },
+  {
+    "id": 776,
+    "name": "El templo del dios olvidado"
+  },
+  {
+    "id": 777,
+    "name": "El templo del dios olvidado"
+  },
+  {
+    "id": 778,
+    "name": "A través del espejo"
+  },
+  {
+    "id": 779,
+    "name": "Matar de hambre a la bestia"
+  },
+  {
+    "id": 780,
+    "name": "Contra la corrupción"
+  },
+  {
+    "id": 781,
+    "name": "La fuente de Orr"
+  },
+  {
+    "id": 782,
+    "name": "Guardia de la armería"
+  },
+  {
+    "id": 783,
+    "name": "Relámpagos del pasado"
+  },
+  {
+    "id": 784,
+    "name": "La marea de acero"
+  },
+  {
+    "id": 785,
+    "name": "Adentrándose en Orr"
+  },
+  {
+    "id": 786,
+    "name": "Navíos de línea"
+  },
+  {
+    "id": 787,
+    "name": "La fuente de Orr"
+  },
+  {
+    "id": 788,
+    "name": "Victoria o muerte"
+  },
+  {
+    "id": 789,
+    "name": "Un envío truculento"
+  },
+  {
+    "id": 790,
+    "name": "Relámpagos del pasado"
+  },
+  {
+    "id": 792,
+    "name": "Un cachorro enfermo"
+  },
+  {
+    "id": 793,
+    "name": "Cazadores y presa"
+  },
+  {
+    "id": 795,
+    "name": "El Legado del Fuego Enemigo"
+  },
+  {
+    "id": 796,
+    "name": "El informante"
+  },
+  {
+    "id": 797,
+    "name": "Testimonio de un traidor"
+  },
+  {
+    "id": 799,
+    "name": "Sigue el rastro"
+  },
+  {
+    "id": 806,
+    "name": "Despertar"
+  },
+  {
+    "id": 807,
+    "name": "Ojo del Norte"
+  },
+  {
+    "id": 820,
+    "name": "La Cámara de Omphalos"
+  },
+  {
+    "id": 821,
+    "name": "La Cámara de Omphalos"
+  },
+  {
+    "id": 825,
+    "name": "Descifrador"
+  },
+  {
+    "id": 827,
+    "name": "Aval de Caer"
+  },
+  {
+    "id": 828,
+    "name": "El Priorato de Durmand"
+  },
+  {
+    "id": 830,
+    "name": "Cuartel general de la Vigilia"
+  },
+  {
+    "id": 833,
+    "name": "Alojamientos de los Tribunos de Ceniza"
+  },
+  {
+    "id": 845,
+    "name": "Luz quebrada"
+  },
+  {
+    "id": 862,
+    "name": "Estruendo del Segador"
+  },
+  {
+    "id": 863,
+    "name": "Ascenso a la Locura"
+  },
+  {
+    "id": 864,
+    "name": "Inquisición Lunática"
+  },
+  {
+    "id": 865,
+    "name": "Torre del Reloj del Rey Loco"
+  },
+  {
+    "id": 866,
+    "name": "Laberinto del Rey Loco"
+  },
+  {
+    "id": 872,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 873,
+    "name": "Cala del Sol Austral"
+  },
+  {
+    "id": 875,
+    "name": "Templo de la Tormenta Silenciosa"
+  },
+  {
+    "id": 877,
+    "name": "Batalla campal de bolas de nieve"
+  },
+  {
+    "id": 878,
+    "name": "Infinirarium de Tixx"
+  },
+  {
+    "id": 880,
+    "name": "Juguetecalipsis"
+  },
+  {
+    "id": 881,
+    "name": "Conjunto del Coro de Campanas"
+  },
+  {
+    "id": 882,
+    "name": "País de las Maravillas Invernal"
+  },
+  {
+    "id": 894,
+    "name": "Vigilancia del Espíritu"
+  },
+  {
+    "id": 895,
+    "name": "Super Adventure Box"
+  },
+  {
+    "id": 896,
+    "name": "Vivero de Nolan norte"
+  },
+  {
+    "id": 897,
+    "name": "Paraje de Roca"
+  },
+  {
+    "id": 899,
+    "name": "Sagrario de Obsidiana"
+  },
+  {
+    "id": 900,
+    "name": "Martillo Celestial"
+  },
+  {
+    "id": 901,
+    "name": "Fragua Fundida"
+  },
+  {
+    "id": 905,
+    "name": "Lanzamiento de cangrejos"
+  },
+  {
+    "id": 911,
+    "name": "Arena de la dragonbola"
+  },
+  {
+    "id": 912,
+    "name": "Ceremonia y acrimonia: Memorias en la pira"
+  },
+  {
+    "id": 913,
+    "name": "Duro de roer: El lugar de los hechos"
+  },
+  {
+    "id": 914,
+    "name": "Callejón sin Salida"
+  },
+  {
+    "id": 915,
+    "name": "Refugio de los Filoetéreos"
+  },
+  {
+    "id": 917,
+    "name": "Se acabaron los secretos: El lugar de los hechos"
+  },
+  {
+    "id": 918,
+    "name": "Arena de los Aspectos"
+  },
+  {
+    "id": 919,
+    "name": "Sprint del Sagrario"
+  },
+  {
+    "id": 920,
+    "name": "Supervivencia en el Sol Austral"
+  },
+  {
+    "id": 922,
+    "name": "Acantilados Laberínticos"
+  },
+  {
+    "id": 924,
+    "name": "Gran maestro de Om"
+  },
+  {
+    "id": 929,
+    "name": "El Pabellón de la Corona"
+  },
+  {
+    "id": 930,
+    "name": "Ceremonia inaugural"
+  },
+  {
+    "id": 931,
+    "name": "Mansión de Scarlet"
+  },
+  {
+    "id": 932,
+    "name": "Ceremonia de clausura"
+  },
+  {
+    "id": 934,
+    "name": "Super Adventure Box"
+  },
+  {
+    "id": 935,
+    "name": "Super Adventure Box"
+  },
+  {
+    "id": 937,
+    "name": "El fin de Scarlet"
+  },
+  {
+    "id": 943,
+    "name": "La Torre de las Pesadillas (pública)"
+  },
+  {
+    "id": 945,
+    "name": "El fin de la Pesadilla"
+  },
+  {
+    "id": 947,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 948,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 949,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 950,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 951,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 952,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 953,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 954,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 955,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 956,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 957,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 958,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 959,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 960,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 964,
+    "name": "Guarida Secreta de Scarlet"
+  },
+  {
+    "id": 965,
+    "name": "El origen de la locura: un momento de paz"
+  },
+  {
+    "id": 968,
+    "name": "El Borde de la Niebla"
+  },
+  {
+    "id": 971,
+    "name": "Callejón sin Salida: un estudio sobre Scarlet"
+  },
+  {
+    "id": 973,
+    "name": "La evacuación de Arco del León"
+  },
+  {
+    "id": 980,
+    "name": "Callejón sin Salida: celebración"
+  },
+  {
+    "id": 984,
+    "name": "Patio"
+  },
+  {
+    "id": 987,
+    "name": "Arco del León: invitados de honor"
+  },
+  {
+    "id": 988,
+    "name": "Cima Seca"
+  },
+  {
+    "id": 989,
+    "name": "Misterio de Prosperidad"
+  },
+  {
+    "id": 990,
+    "name": "Acorralado"
+  },
+  {
+    "id": 991,
+    "name": "Disturbio en las Selvas Brisbanas"
+  },
+  {
+    "id": 992,
+    "name": "Desesperanza"
+  },
+  {
+    "id": 993,
+    "name": "Habitación secreta de Scarlet"
+  },
+  {
+    "id": 994,
+    "name": "El incidente de Concordia"
+  },
+  {
+    "id": 997,
+    "name": "Descubriendo el avance de Scarlet"
+  },
+  {
+    "id": 998,
+    "name": "La máquina"
+  },
+  {
+    "id": 999,
+    "name": "Problemas en el Fuerte Salma"
+  },
+  {
+    "id": 1000,
+    "name": "El enigma de los puntos de ruta"
+  },
+  {
+    "id": 1001,
+    "name": "Invitaciones a la cumbre"
+  },
+  {
+    "id": 1002,
+    "name": "Misión cumplida"
+  },
+  {
+    "id": 1003,
+    "name": "El llamamiento"
+  },
+  {
+    "id": 1004,
+    "name": "Plan de ataque"
+  },
+  {
+    "id": 1005,
+    "name": "Fiesta política"
+  },
+  {
+    "id": 1006,
+    "name": "Purifica el Fuego Enemigo"
+  },
+  {
+    "id": 1007,
+    "name": "Recalibrando los puntos de ruta"
+  },
+  {
+    "id": 1008,
+    "name": "Los fantasmas del Fuerte Salma"
+  },
+  {
+    "id": 1009,
+    "name": "Dispositivo de Taimi"
+  },
+  {
+    "id": 1010,
+    "name": "La cumbre mundial"
+  },
+  {
+    "id": 1011,
+    "name": "Batalla del Crepúsculo del Campeón"
+  },
+  {
+    "id": 1015,
+    "name": "Los Páramos Argentos"
+  },
+  {
+    "id": 1016,
+    "name": "Arcanos ocultos"
+  },
+  {
+    "id": 1017,
+    "name": "Reunión con el Pacto"
+  },
+  {
+    "id": 1018,
+    "name": "Escuadrón de reconocimiento de Caithe"
+  },
+  {
+    "id": 1019,
+    "name": "Fuerte Trinidad"
+  },
+  {
+    "id": 1021,
+    "name": "Hacia el laberinto"
+  },
+  {
+    "id": 1022,
+    "name": "Regreso al Campamento Determinación"
+  },
+  {
+    "id": 1023,
+    "name": "Rastreando a los maestros de los Aspectos"
+  },
+  {
+    "id": 1024,
+    "name": "Sin refugio"
+  },
+  {
+    "id": 1025,
+    "name": "Los recién despertados"
+  },
+  {
+    "id": 1026,
+    "name": "Conoce a los asura"
+  },
+  {
+    "id": 1027,
+    "name": "Asalto al Pacto"
+  },
+  {
+    "id": 1028,
+    "name": "La cueva misteriosa"
+  },
+  {
+    "id": 1029,
+    "name": "Arcana Obscura"
+  },
+  {
+    "id": 1032,
+    "name": "Valiosas pertenencias"
+  },
+  {
+    "id": 1033,
+    "name": "Conocimiento enterrado"
+  },
+  {
+    "id": 1037,
+    "name": "La selva abastece"
+  },
+  {
+    "id": 1040,
+    "name": "Corazones y mentes"
+  },
+  {
+    "id": 1041,
+    "name": "Defensa del Dragón"
+  },
+  {
+    "id": 1042,
+    "name": "Umbral Verdeante"
+  },
+  {
+    "id": 1043,
+    "name": "Valle Áurico"
+  },
+  {
+    "id": 1045,
+    "name": "Profundidades Enredadas"
+  },
+  {
+    "id": 1046,
+    "name": "Raíces de terror"
+  },
+  {
+    "id": 1048,
+    "name": "Ciudad de la esperanza"
+  },
+  {
+    "id": 1050,
+    "name": "Arrancados del cielo"
+  },
+  {
+    "id": 1051,
+    "name": "Prisioneros del dragón"
+  },
+  {
+    "id": 1052,
+    "name": "Umbral Verdeante"
+  },
+  {
+    "id": 1054,
+    "name": "Cosecha amarga"
+  },
+  {
+    "id": 1057,
+    "name": "Observaciones extrañas"
+  },
+  {
+    "id": 1058,
+    "name": "Prólogo: Reagrupación en Maguuma"
+  },
+  {
+    "id": 1062,
+    "name": "Valle Espiritual"
+  },
+  {
+    "id": 1063,
+    "name": "Lanzamiento de cangrejos del Sol Austral"
+  },
+  {
+    "id": 1064,
+    "name": "Reclamación del Precipicio Perdido"
+  },
+  {
+    "id": 1065,
+    "name": "Tesoro de Angvar"
+  },
+  {
+    "id": 1066,
+    "name": "Reclamación de la Cueva Dorada"
+  },
+  {
+    "id": 1067,
+    "name": "Tesoro de Angvar"
+  },
+  {
+    "id": 1068,
+    "name": "Cueva Dorada"
+  },
+  {
+    "id": 1069,
+    "name": "Precipicio Perdido"
+  },
+  {
+    "id": 1070,
+    "name": "Reclamación del Precipicio Perdido"
+  },
+  {
+    "id": 1071,
+    "name": "Precipicio Perdido"
+  },
+  {
+    "id": 1072,
+    "name": "Lanzamiento de cangrejos del Sol Austral"
+  },
+  {
+    "id": 1073,
+    "name": "Oficina de la Iniciativa"
+  },
+  {
+    "id": 1074,
+    "name": "Quebranta Plagagua"
+  },
+  {
+    "id": 1075,
+    "name": "Laboratorio de Proxémica"
+  },
+  {
+    "id": 1076,
+    "name": "Precipicio Perdido"
+  },
+  {
+    "id": 1078,
+    "name": "Reclamación de la Cueva Dorada"
+  },
+  {
+    "id": 1079,
+    "name": "Con el agua hasta el cuello"
+  },
+  {
+    "id": 1080,
+    "name": "Marcado para eliminación"
+  },
+  {
+    "id": 1081,
+    "name": "Hacienda de Langmar"
+  },
+  {
+    "id": 1082,
+    "name": "Hacienda de Langmar"
+  },
+  {
+    "id": 1083,
+    "name": "Con el agua hasta el cuello"
+  },
+  {
+    "id": 1084,
+    "name": "Lanzamiento de cangrejos del Sol Austral"
+  },
+  {
+    "id": 1086,
+    "name": "Guarda nuestros suministros"
+  },
+  {
+    "id": 1087,
+    "name": "Laboratorio de Proxémica"
+  },
+  {
+    "id": 1088,
+    "name": "Reclamación de la Cueva Dorada"
+  },
+  {
+    "id": 1089,
+    "name": "Tesoro de Angvar"
+  },
+  {
+    "id": 1090,
+    "name": "Hacienda de Langmar"
+  },
+  {
+    "id": 1091,
+    "name": "Guarda nuestros suministros"
+  },
+  {
+    "id": 1092,
+    "name": "Defensa vigía de la fisura"
+  },
+  {
+    "id": 1093,
+    "name": "Tesoro de Angvar"
+  },
+  {
+    "id": 1094,
+    "name": "Guarda nuestros suministros"
+  },
+  {
+    "id": 1095,
+    "name": "Defensa del Dragón (Heart of Thorns)"
+  },
+  {
+    "id": 1097,
+    "name": "Laboratorio de Proxémica"
+  },
+  {
+    "id": 1098,
+    "name": "Reclamación de la Cueva Dorada"
+  },
+  {
+    "id": 1099,
+    "name": " - Tierras Fronterizas desérticas"
+  },
+  {
+    "id": 1100,
+    "name": "Defensa vigía de la fisura"
+  },
+  {
+    "id": 1101,
+    "name": "Cueva Dorada"
+  },
+  {
+    "id": 1104,
+    "name": "Precipicio Perdido"
+  },
+  {
+    "id": 1105,
+    "name": "Hacienda de Langmar"
+  },
+  {
+    "id": 1106,
+    "name": "Con el agua hasta el cuello"
+  },
+  {
+    "id": 1107,
+    "name": "Cueva Dorada"
+  },
+  {
+    "id": 1108,
+    "name": "Cueva Dorada"
+  },
+  {
+    "id": 1109,
+    "name": "Tesoro de Angvar"
+  },
+  {
+    "id": 1110,
+    "name": "Prueba de campo de rifle de chatarra"
+  },
+  {
+    "id": 1111,
+    "name": "Defensa vigía de la fisura"
+  },
+  {
+    "id": 1112,
+    "name": "Marcado para eliminación"
+  },
+  {
+    "id": 1113,
+    "name": "Defensa vigía de la fisura"
+  },
+  {
+    "id": 1115,
+    "name": "Batalla contra el puñomático enloquecido"
+  },
+  {
+    "id": 1116,
+    "name": "Con el agua hasta el cuello"
+  },
+  {
+    "id": 1117,
+    "name": "Reclamación del Precipicio Perdido"
+  },
+  {
+    "id": 1118,
+    "name": "Guarda nuestros suministros"
+  },
+  {
+    "id": 1121,
+    "name": "Cueva Dorada"
+  },
+  {
+    "id": 1122,
+    "name": "Reclamación de la Cueva Dorada"
+  },
+  {
+    "id": 1123,
+    "name": "Quebranta Plagagua"
+  },
+  {
+    "id": 1124,
+    "name": "Precipicio Perdido"
+  },
+  {
+    "id": 1126,
+    "name": "Lanzamiento de cangrejos del Sol Austral"
+  },
+  {
+    "id": 1128,
+    "name": "Defensa vigía de la fisura"
+  },
+  {
+    "id": 1129,
+    "name": "Hacienda de Langmar"
+  },
+  {
+    "id": 1130,
+    "name": "Con el agua hasta el cuello"
+  },
+  {
+    "id": 1131,
+    "name": "Quebranta Plagagua"
+  },
+  {
+    "id": 1132,
+    "name": "Reclamación del Precipicio Perdido"
+  },
+  {
+    "id": 1133,
+    "name": "Marcado para eliminación"
+  },
+  {
+    "id": 1134,
+    "name": "Quebranta Plagagua"
+  },
+  {
+    "id": 1135,
+    "name": "Marcado para eliminación"
+  },
+  {
+    "id": 1136,
+    "name": "Laboratorio de Proxémica"
+  },
+  {
+    "id": 1137,
+    "name": "Laboratorio de Proxémica"
+  },
+  {
+    "id": 1138,
+    "name": "Guarda nuestros suministros"
+  },
+  {
+    "id": 1139,
+    "name": "Lanzamiento de cangrejos del Sol Austral"
+  },
+  {
+    "id": 1140,
+    "name": "Reclamación del Precipicio Perdido"
+  },
+  {
+    "id": 1142,
+    "name": "Quebranta Plagagua"
+  },
+  {
+    "id": 1146,
+    "name": "Marcado para eliminación"
+  },
+  {
+    "id": 1147,
+    "name": "Valle Espiritual"
+  },
+  {
+    "id": 1149,
+    "name": "Paso de la Salvación"
+  },
+  {
+    "id": 1150,
+    "name": ""
+  },
+  {
+    "id": 1153,
+    "name": "Guarida de tigre"
+  },
+  {
+    "id": 1154,
+    "name": "Arena de entrenamiento de las Fuerzas Especiales"
+  },
+  {
+    "id": 1155,
+    "name": "Aeródromo de Arco del León"
+  },
+  {
+    "id": 1156,
+    "name": "Fortaleza de los Fieles"
+  },
+  {
+    "id": 1158,
+    "name": "Capricho de noble"
+  },
+  {
+    "id": 1159,
+    "name": "Investigación en Rata Novus"
+  },
+  {
+    "id": 1161,
+    "name": "Heredad de Eir"
+  },
+  {
+    "id": 1163,
+    "name": "La Venganza del Capricornio"
+  },
+  {
+    "id": 1164,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1165,
+    "name": "Pantano de la Hematites"
+  },
+  {
+    "id": 1166,
+    "name": "La Fortaleza del Confesor"
+  },
+  {
+    "id": 1167,
+    "name": "Los actos de una sombra"
+  },
+  {
+    "id": 1169,
+    "name": "Rata Novus"
+  },
+  {
+    "id": 1170,
+    "name": "El Juego de Taimi"
+  },
+  {
+    "id": 1171,
+    "name": "Coliseo Eterno"
+  },
+  {
+    "id": 1172,
+    "name": "Vigilia de la Dragona"
+  },
+  {
+    "id": 1173,
+    "name": "El Juego de Taimi"
+  },
+  {
+    "id": 1175,
+    "name": "Bahía de las Ascuas"
+  },
+  {
+    "id": 1176,
+    "name": "El Juego de Taimi"
+  },
+  {
+    "id": 1177,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1178,
+    "name": "Frontera de Escarchamarga"
+  },
+  {
+    "id": 1180,
+    "name": "El frío extremo"
+  },
+  {
+    "id": 1181,
+    "name": "Rompiendo el hielo"
+  },
+  {
+    "id": 1182,
+    "name": "La precoz Aurene"
+  },
+  {
+    "id": 1185,
+    "name": "Lago Doric"
+  },
+  {
+    "id": 1188,
+    "name": "Bastión del Penitente"
+  },
+  {
+    "id": 1189,
+    "name": "Reunión con la reina"
+  },
+  {
+    "id": 1190,
+    "name": "Consejo de ministros"
+  },
+  {
+    "id": 1191,
+    "name": "El fin del confesor"
+  },
+  {
+    "id": 1192,
+    "name": "La segunda visión"
+  },
+  {
+    "id": 1193,
+    "name": "La primera visión"
+  },
+  {
+    "id": 1194,
+    "name": "La espada regenerada"
+  },
+  {
+    "id": 1195,
+    "name": "Draconis Mons"
+  },
+  {
+    "id": 1196,
+    "name": "El Corazón del Volcán"
+  },
+  {
+    "id": 1198,
+    "name": "El proyecto personal de Taimi"
+  },
+  {
+    "id": 1200,
+    "name": "Sala de la Niebla"
+  },
+  {
+    "id": 1201,
+    "name": "Arena Asura"
+  },
+  {
+    "id": 1202,
+    "name": "Escondite del Manto Blanco"
+  },
+  {
+    "id": 1203,
+    "name": "Desembarco de la Sirena"
+  },
+  {
+    "id": 1204,
+    "name": "Templo del palacio"
+  },
+  {
+    "id": 1205,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1206,
+    "name": "Santuario del Bloqueo de la Niebla"
+  },
+  {
+    "id": 1207,
+    "name": "La última oportunidad"
+  },
+  {
+    "id": 1208,
+    "name": "Cuartel General de la Hoja Brillante"
+  },
+  {
+    "id": 1209,
+    "name": "El Sacrificio"
+  },
+  {
+    "id": 1210,
+    "name": "Oasis de Cristal"
+  },
+  {
+    "id": 1211,
+    "name": "Tierras Altas del Desierto"
+  },
+  {
+    "id": 1212,
+    "name": "Oficina de la Concejala Jefa"
+  },
+  {
+    "id": 1214,
+    "name": "Refugio Venteado"
+  },
+  {
+    "id": 1215,
+    "name": "Refugio Venteado"
+  },
+  {
+    "id": 1217,
+    "name": "Encender la Llama"
+  },
+  {
+    "id": 1219,
+    "name": "Enemigo de mi Enemigo: La Mariscal de las Bestias"
+  },
+  {
+    "id": 1220,
+    "name": "Encender la Llama (Prólogo)"
+  },
+  {
+    "id": 1221,
+    "name": "El Camino Hacia Adelante"
+  },
+  {
+    "id": 1222,
+    "name": "Reclamación del Refugio Venteado"
+  },
+  {
+    "id": 1223,
+    "name": "Pequeña victoria (Epílogo)"
+  },
+  {
+    "id": 1224,
+    "name": "Refugio Venteado"
+  },
+  {
+    "id": 1226,
+    "name": "La Desolación"
+  },
+  {
+    "id": 1227,
+    "name": "Suelo Consagrado: Tumba de Reyes Primigenios"
+  },
+  {
+    "id": 1228,
+    "name": "La Ribera del Elon"
+  },
+  {
+    "id": 1230,
+    "name": "Afrontando la verdad: El Sagrario"
+  },
+  {
+    "id": 1231,
+    "name": "Reclamación del Refugio Venteado"
+  },
+  {
+    "id": 1232,
+    "name": "Refugio Venteado"
+  },
+  {
+    "id": 1234,
+    "name": "Para Matar a un Dios"
+  },
+  {
+    "id": 1236,
+    "name": "Reclamación del Refugio Venteado"
+  },
+  {
+    "id": 1240,
+    "name": "Un Rastro en Llamas"
+  },
+  {
+    "id": 1241,
+    "name": "Noche de Fuegos"
+  },
+  {
+    "id": 1242,
+    "name": "Oficina de Zalambur"
+  },
+  {
+    "id": 1243,
+    "name": "Refugio Venteado"
+  },
+  {
+    "id": 1244,
+    "name": "Reclamación del Refugio Venteado"
+  },
+  {
+    "id": 1245,
+    "name": "La Marcha"
+  },
+  {
+    "id": 1246,
+    "name": "Oficina de la Capitana Kiel"
+  },
+  {
+    "id": 1247,
+    "name": "Enemigo de mi Enemigo"
+  },
+  {
+    "id": 1248,
+    "name": "Dominio de Vabbi"
+  },
+  {
+    "id": 1250,
+    "name": "Refugio Venteado"
+  },
+  {
+    "id": 1252,
+    "name": "Recuerdos Cristalinos"
+  },
+  {
+    "id": 1253,
+    "name": "Bestia de Guerra"
+  },
+  {
+    "id": 1255,
+    "name": "Enemigo de mi Enemigo: El Mariscal de las Tropas"
+  },
+  {
+    "id": 1256,
+    "name": "La Biblioteca Oscura"
+  },
+  {
+    "id": 1257,
+    "name": "Lamento del Mariscal Lancero"
+  },
+  {
+    "id": 1260,
+    "name": "El Ojo de la Tormenta de la Marca"
+  },
+  {
+    "id": 1263,
+    "name": "Dominio de Istan"
+  },
+  {
+    "id": 1264,
+    "name": "Sala de las Cadenas"
+  },
+  {
+    "id": 1265,
+    "name": "El Héroe de Istan"
+  },
+  {
+    "id": 1266,
+    "name": "Cueva del Campeón de los Lanceros del Sol"
+  },
+  {
+    "id": 1267,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1268,
+    "name": "Fahranur, la Primera Ciudad"
+  },
+  {
+    "id": 1270,
+    "name": "Juguetecalipsis"
+  },
+  {
+    "id": 1271,
+    "name": "Islas Arenosas"
+  },
+  {
+    "id": 1274,
+    "name": "La Carga"
+  },
+  {
+    "id": 1275,
+    "name": "Patio"
+  },
+  {
+    "id": 1276,
+    "name": "El Sujeto de Prueba"
+  },
+  {
+    "id": 1277,
+    "name": "La Carga"
+  },
+  {
+    "id": 1278,
+    "name": "¿?"
+  },
+  {
+    "id": 1279,
+    "name": "ERROR: SEÑAL PERDIDA"
+  },
+  {
+    "id": 1281,
+    "name": "El bien con bien se paga"
+  },
+  {
+    "id": 1282,
+    "name": "Tras la pista del científico"
+  },
+  {
+    "id": 1283,
+    "name": "¿?"
+  },
+  {
+    "id": 1285,
+    "name": "¿?"
+  },
+  {
+    "id": 1288,
+    "name": "Dominio de Kourna"
+  },
+  {
+    "id": 1289,
+    "name": "Atrapados"
+  },
+  {
+    "id": 1290,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1291,
+    "name": "Más vale prevenir que curar"
+  },
+  {
+    "id": 1292,
+    "name": "Estás en tu casa"
+  },
+  {
+    "id": 1294,
+    "name": "Refugio del Sol"
+  },
+  {
+    "id": 1295,
+    "name": "Legado"
+  },
+  {
+    "id": 1296,
+    "name": "Tras la tormenta"
+  },
+  {
+    "id": 1297,
+    "name": "Una nación asolada"
+  },
+  {
+    "id": 1299,
+    "name": "Tras la tormenta"
+  },
+  {
+    "id": 1300,
+    "name": "Desde las cenizas: La certera"
+  },
+  {
+    "id": 1301,
+    "name": "Acantilados de Jahai"
+  },
+  {
+    "id": 1302,
+    "name": "Tras la tormenta"
+  },
+  {
+    "id": 1303,
+    "name": "Táctica del Forjador de Mitos"
+  },
+  {
+    "id": 1304,
+    "name": "Circuito del Rey Loco"
+  },
+  {
+    "id": 1305,
+    "name": "Dominio de la Djinn"
+  },
+  {
+    "id": 1306,
+    "name": "Guarida Secreta de los Muñecos de Nieve (escuadrón)"
+  },
+  {
+    "id": 1308,
+    "name": "Vástago y Campeón"
+  },
+  {
+    "id": 1309,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1310,
+    "name": "Picos del Trueno"
+  },
+  {
+    "id": 1313,
+    "name": "El Dragón de Cristal"
+  },
+  {
+    "id": 1314,
+    "name": "Las Floraciones de Cristal"
+  },
+  {
+    "id": 1315,
+    "name": "Bastión del Armisticio"
+  },
+  {
+    "id": 1316,
+    "name": "Fisura de la Niebla"
+  },
+  {
+    "id": 1317,
+    "name": "Dragoncaído"
+  },
+  {
+    "id": 1318,
+    "name": "Dragoncaído"
+  },
+  {
+    "id": 1319,
+    "name": "Descenso"
+  },
+  {
+    "id": 1320,
+    "name": "Fin"
+  },
+  {
+    "id": 1321,
+    "name": "Vuelo Dracónico"
+  },
+  {
+    "id": 1322,
+    "name": "Epílogo"
+  },
+  {
+    "id": 1323,
+    "name": "La Llave de Ahdashim"
+  },
+  {
+    "id": 1326,
+    "name": "Arena del Dragón (pública)"
+  },
+  {
+    "id": 1327,
+    "name": "Arena del Dragón (privada)"
+  },
+  {
+    "id": 1328,
+    "name": "Franja Áurica"
+  },
+  {
+    "id": 1329,
+    "name": "Regreso a Casa"
+  },
+  {
+    "id": 1330,
+    "name": "Valle de Grothmar"
+  },
+  {
+    "id": 1331,
+    "name": "Paso de las Picosescalofriantes (público)"
+  },
+  {
+    "id": 1332,
+    "name": "Paso de las Picosescalofriantes"
+  },
+  {
+    "id": 1334,
+    "name": "Cada vez más adentro"
+  },
+  {
+    "id": 1336,
+    "name": "Carrera armamentística"
+  },
+  {
+    "id": 1338,
+    "name": "Mala sangre"
+  },
+  {
+    "id": 1339,
+    "name": "Pelahuesos"
+  },
+  {
+    "id": 1340,
+    "name": "Voz de los Caídos y Garra de los Caídos (público)"
+  },
+  {
+    "id": 1341,
+    "name": "Fraenir de Jormag"
+  },
+  {
+    "id": 1342,
+    "name": "La Invitación"
+  },
+  {
+    "id": 1343,
+    "name": "Marca de Bjora"
+  },
+  {
+    "id": 1344,
+    "name": "Fraenir de Jormag (público)"
+  },
+  {
+    "id": 1345,
+    "name": "Lo que queda atrás"
+  },
+  {
+    "id": 1346,
+    "name": "Voz de los Caídos y Garra de los Caídos"
+  },
+  {
+    "id": 1349,
+    "name": "Silencio"
+  },
+  {
+    "id": 1351,
+    "name": "Pelahuesos (público)"
+  },
+  {
+    "id": 1352,
+    "name": "Guarida Secreta de los Muñecos de Nieve (pública)"
+  },
+  {
+    "id": 1353,
+    "name": "Desafío celestial"
+  },
+  {
+    "id": 1355,
+    "name": "La voz de las profundidades"
+  },
+  {
+    "id": 1356,
+    "name": "Persiguiendo fantasmas"
+  },
+  {
+    "id": 1357,
+    "name": "Susurro de Jormag (público)"
+  },
+  {
+    "id": 1358,
+    "name": "Ojo del Norte"
+  },
+  {
+    "id": 1359,
+    "name": "Susurro de Jormag"
+  },
+  {
+    "id": 1361,
+    "name": "La encarnación de la Pesadilla"
+  },
+  {
+    "id": 1362,
+    "name": "Forja de Acero (pública)"
+  },
+  {
+    "id": 1363,
+    "name": "Nuevos amigos, nuevos enemigos: Vivero de Nolan Norte"
+  },
+  {
+    "id": 1364,
+    "name": "La batalla de Paraje de Roca"
+  },
+  {
+    "id": 1366,
+    "name": "Cuevas de Escarchaoscura"
+  },
+  {
+    "id": 1368,
+    "name": "Forja de Acero (escuadrón)"
+  },
+  {
+    "id": 1369,
+    "name": "La guarida de Canach"
+  },
+  {
+    "id": 1370,
+    "name": "Ojo del Norte"
+  },
+  {
+    "id": 1371,
+    "name": "Costa de Bosquellovizna"
+  },
+  {
+    "id": 1372,
+    "name": "Giro radical"
+  },
+  {
+    "id": 1373,
+    "name": "Negociación peliaguda"
+  },
+  {
+    "id": 1374,
+    "name": "Guerra fría"
+  },
+  {
+    "id": 1375,
+    "name": "Acero quebrado"
+  },
+  {
+    "id": 1376,
+    "name": "Guerra fría (público)"
+  },
+  {
+    "id": 1378,
+    "name": "Tras las líneas enemigas"
+  },
+  {
+    "id": 1379,
+    "name": "Un charr, un dragón, un campeón"
+  },
+  {
+    "id": 1380,
+    "name": "Epílogo"
+  },
+  {
+    "id": 1382,
+    "name": "La arena del Glotón"
+  },
+  {
+    "id": 1383,
+    "name": "Una negociación sencilla"
+  },
+  {
+    "id": 1384,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1385,
+    "name": "Bosque de Caledon (privada)"
+  },
+  {
+    "id": 1386,
+    "name": "Picos del Trueno (privada)"
+  },
+  {
+    "id": 1387,
+    "name": "Costa Mareasangrienta (pública)"
+  },
+  {
+    "id": 1388,
+    "name": "Cúmulos de Guaridanieve (privada)"
+  },
+  {
+    "id": 1389,
+    "name": "Cúmulos de Guaridanieve (pública)"
+  },
+  {
+    "id": 1390,
+    "name": "Colina del Corazón de Fuego (pública)"
+  },
+  {
+    "id": 1391,
+    "name": "Selvas Brisbanas (privada)"
+  },
+  {
+    "id": 1392,
+    "name": "Primordus desatado"
+  },
+  {
+    "id": 1393,
+    "name": "Lago Doric (pública)"
+  },
+  {
+    "id": 1394,
+    "name": "Costa Mareasangrienta (privada)"
+  },
+  {
+    "id": 1395,
+    "name": "Picos del Trueno (pública)"
+  },
+  {
+    "id": 1396,
+    "name": "Campos de Gendarran (pública)"
+  },
+  {
+    "id": 1397,
+    "name": "Provincia de Métrica (pública)"
+  },
+  {
+    "id": 1398,
+    "name": "Campos de la Ruina (pública)"
+  },
+  {
+    "id": 1399,
+    "name": "Selvas Brisbanas (pública)"
+  },
+  {
+    "id": 1400,
+    "name": "Campos de la Ruina (privada)"
+  },
+  {
+    "id": 1401,
+    "name": "Provincia de Métrica (privada)"
+  },
+  {
+    "id": 1402,
+    "name": "Lago Doric (privada)"
+  },
+  {
+    "id": 1403,
+    "name": "Bosque de Caledon (pública)"
+  },
+  {
+    "id": 1404,
+    "name": "Colina del Corazón de Fuego (privada)"
+  },
+  {
+    "id": 1405,
+    "name": "Campos de Gendarran (privada)"
+  },
+  {
+    "id": 1407,
+    "name": "Nivel del Consejo"
+  },
+  {
+    "id": 1408,
+    "name": "Incendio incontrolado"
+  },
+  {
+    "id": 1409,
+    "name": "Tormenta Dracónica (Escuadrón privado)"
+  },
+  {
+    "id": 1410,
+    "name": "El Fin del Campeón"
+  },
+  {
+    "id": 1411,
+    "name": "Tormenta Dracónica (pública)"
+  },
+  {
+    "id": 1412,
+    "name": "Tormenta Dracónica"
+  },
+  {
+    "id": 1413,
+    "name": "La marioneta retorcida (pública)"
+  },
+  {
+    "id": 1414,
+    "name": "La marioneta retorcida (escuadrón privado)"
+  },
+  {
+    "id": 1415,
+    "name": "Un futuro de jade: Planta de Energía"
+  },
+  {
+    "id": 1416,
+    "name": "Los secretos mejor guardados: Reactor de Yong"
+  },
+  {
+    "id": 1419,
+    "name": "Isla del Reflejo"
+  },
+  {
+    "id": 1420,
+    "name": "Contratiempo: La Hoja de Nika"
+  },
+  {
+    "id": 1421,
+    "name": "¿?"
+  },
+  {
+    "id": 1422,
+    "name": "Muerte del Dragón"
+  },
+  {
+    "id": 1426,
+    "name": "Isla del Reflejo"
+  },
+  {
+    "id": 1427,
+    "name": "El peso del mundo: Mansión de Joon"
+  },
+  {
+    "id": 1428,
+    "name": "Piedra Arbórea"
+  },
+  {
+    "id": 1429,
+    "name": "El ciclo, renacido: Piedra Arbórea"
+  },
+  {
+    "id": 1430,
+    "name": "Reclamación de la Isla del Reflejo"
+  },
+  {
+    "id": 1432,
+    "name": "Escondite Filoetéreo"
+  },
+  {
+    "id": 1433,
+    "name": "Viejos amigos"
+  },
+  {
+    "id": 1434,
+    "name": "Vacío"
+  },
+  {
+    "id": 1435,
+    "name": "Isla del Reflejo"
+  },
+  {
+    "id": 1436,
+    "name": "Punto de extracción: Sala de Mando"
+  },
+  {
+    "id": 1437,
+    "name": "Templo de la Cosecha"
+  },
+  {
+    "id": 1438,
+    "name": "Ciudad de Nueva Kaineng"
+  },
+  {
+    "id": 1439,
+    "name": "La única"
+  },
+  {
+    "id": 1440,
+    "name": "Descanso eterno"
+  },
+  {
+    "id": 1442,
+    "name": "Provincia de Seitung"
+  },
+  {
+    "id": 1444,
+    "name": "Isla del Reflejo"
+  },
+  {
+    "id": 1445,
+    "name": "Un futuro de jade: Laboratorio de Nahpui"
+  },
+  {
+    "id": 1446,
+    "name": "Armada filoetérea"
+  },
+  {
+    "id": 1448,
+    "name": "El ciclo, renacido: La taberna Callejón sin Salida"
+  },
+  {
+    "id": 1449,
+    "name": "Santuario de Aurene"
+  },
+  {
+    "id": 1450,
+    "name": "Chatarrería de Xunlai Jade"
+  },
+  {
+    "id": 1451,
+    "name": "Mirador de Kaineng"
+  },
+  {
+    "id": 1452,
+    "name": "Las Selvas de Echovald"
+  },
+  {
+    "id": 1453,
+    "name": "Ministerio de Seguridad: Sede Principal"
+  },
+  {
+    "id": 1454,
+    "name": "La ruta panorámica: Puerto de Kaineng"
+  },
+  {
+    "id": 1456,
+    "name": "Reclamación de la Isla del Reflejo"
+  },
+  {
+    "id": 1457,
+    "name": "Instalación de detención"
+  },
+  {
+    "id": 1458,
+    "name": "Santuario de Aurene"
+  },
+  {
+    "id": 1459,
+    "name": "Reclamación de la Isla del Reflejo"
+  },
+  {
+    "id": 1460,
+    "name": "Corte de la emperatriz Ihn"
+  },
+  {
+    "id": 1461,
+    "name": "Escondrijo de Zen Daijun"
+  },
+  {
+    "id": 1462,
+    "name": "Isla del Reflejo"
+  },
+  {
+    "id": 1463,
+    "name": "Reclamación de la Isla del Reflejo"
+  },
+  {
+    "id": 1464,
+    "name": "Contratiempo: Piedra Arbórea"
+  },
+  {
+    "id": 1465,
+    "name": "Pabellón de los Mil Mares"
+  },
+  {
+    "id": 1466,
+    "name": "Una celebración tranquila: Desván de Knut Osoblanco"
+  },
+  {
+    "id": 1467,
+    "name": "Nuevos amigos, nuevos enemigos: El núcleo de mando"
+  },
+  {
+    "id": 1468,
+    "name": "La batalla de Paraje de Roca: Desván de Knut Osoblanco"
+  },
+  {
+    "id": 1469,
+    "name": "Nuevos amigos, nuevos enemigos: Alojamientos de los Tribunos de Sangre"
+  },
+  {
+    "id": 1470,
+    "name": "Una celebración tranquila: Calabozo de la Ciudadela"
+  },
+  {
+    "id": 1471,
+    "name": "Caso cerrado: Callejón sin Salida"
+  },
+  {
+    "id": 1472,
+    "name": "Duro de roer: Callejón sin Salida"
+  },
+  {
+    "id": 1474,
+    "name": "Recogiendo los pedazos"
+  },
+  {
+    "id": 1477,
+    "name": "La Torre de las Pesadillas (escuadrón privado)"
+  },
+  {
+    "id": 1478,
+    "name": "La batalla de Arco del León (escuadrón privado)"
+  },
+  {
+    "id": 1480,
+    "name": "La marioneta retorcida"
+  },
+  {
+    "id": 1481,
+    "name": "Batalla en el Agrietador"
+  },
+  {
+    "id": 1482,
+    "name": "La batalla de Arco del León (pública)"
+  },
+  {
+    "id": 1483,
+    "name": "Recuerdo de la antigua Arco del León"
+  },
+  {
+    "id": 1484,
+    "name": "Campo de evacuación del norte"
+  },
+  {
+    "id": 1485,
+    "name": "Vieja Corte del León"
+  },
+  {
+    "id": 1487,
+    "name": "Escape etéreo"
+  },
+  {
+    "id": 1488,
+    "name": "En ello: Zona de excavación"
+  },
+  {
+    "id": 1489,
+    "name": "Injusticia: Casa de Té del Pato Rojo"
+  },
+  {
+    "id": 1490,
+    "name": "Hondonada de Gyala"
+  },
+  {
+    "id": 1491,
+    "name": "Con el agua hasta el cuello: Zona de excavación"
+  },
+  {
+    "id": 1492,
+    "name": "Con el agua hasta el cuello: La Profundidad"
+  },
+  {
+    "id": 1493,
+    "name": "Super Adventure Box"
+  },
+  {
+    "id": 1494,
+    "name": "Trampa: la profundidad"
+  },
+  {
+    "id": 1495,
+    "name": "Emerge un plan: la planta de energía"
+  },
+  {
+    "id": 1496,
+    "name": "Liberación emocional: depósitos de jade"
+  },
+  {
+    "id": 1497,
+    "name": "Liberación emocional: Sala de Mando"
+  },
+  {
+    "id": 1498,
+    "name": "Círculo completo: Casa de Té del Pato Rojo"
+  },
+  {
+    "id": 1499,
+    "name": "Adelante"
+  },
+  {
+    "id": 1500,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1501,
+    "name": "El infierno desatado: ???"
+  },
+  {
+    "id": 1502,
+    "name": " La faceta extraviada: torre del brujo sur"
+  },
+  {
+    "id": 1503,
+    "name": "Madre de las estrellas: Cresta de Mirada Estelar"
+  },
+  {
+    "id": 1504,
+    "name": "En las entrañas de lo oscuro: Bastión de lo Oscuro"
+  },
+  {
+    "id": 1506,
+    "name": "Torre de los secretos: torre del brujo sur"
+  },
+  {
+    "id": 1507,
+    "name": "Destino de Mabon: Bastión de la Fuerza"
+  },
+  {
+    "id": 1508,
+    "name": "Enfermería del Resguardo Astral"
+  },
+  {
+    "id": 1509,
+    "name": "La torre del brujo"
+  },
+  {
+    "id": 1510,
+    "name": "Archipiélago Vistacielo"
+  },
+  {
+    "id": 1511,
+    "name": "Comandante sin causa: Campos de Gendarran"
+  },
+  {
+    "id": 1512,
+    "name": "La aguja del mundo: Bastión de lo Celestial"
+  },
+  {
+    "id": 1513,
+    "name": "Madre de las estrellas: Observatorio Cósmico"
+  },
+  {
+    "id": 1514,
+    "name": "Epílogo: torre del brujo"
+  },
+  {
+    "id": 1515,
+    "name": "Observatorio Cósmico"
+  },
+  {
+    "id": 1516,
+    "name": "En las entrañas de lo oscuro: La torre del brujo"
+  },
+  {
+    "id": 1517,
+    "name": "Amnytas"
+  },
+  {
+    "id": 1518,
+    "name": "Traición: Nayos"
+  },
+  {
+    "id": 1519,
+    "name": "El infierno desatado: ???"
+  },
+  {
+    "id": 1520,
+    "name": "Templo de Febe"
+  },
+  {
+    "id": 1521,
+    "name": "La faceta extraviada: Luz de Droknar"
+  },
+  {
+    "id": 1522,
+    "name": "Torre del reloj parado"
+  },
+  {
+    "id": 1523,
+    "name": "Convergencia: Zona exterior de Nayos (pública)"
+  },
+  {
+    "id": 1524,
+    "name": "Coacción: Territorio de Heitor"
+  },
+  {
+    "id": 1525,
+    "name": "Puerta de Heitor: Territorio de Heitor"
+  },
+  {
+    "id": 1526,
+    "name": "Zona interior de Nayos"
+  },
+  {
+    "id": 1527,
+    "name": "Convergencia: Zona exterior de Nayos (escuadrón privado)"
+  },
+  {
+    "id": 1528,
+    "name": "Los supervivientes: Puerta de Heitor"
+  },
+  {
+    "id": 1529,
+    "name": "Los supervivientes: Campamento del Resguardo Astral"
+  },
+  {
+    "id": 1530,
+    "name": "Coacción: La torre del brujo"
+  },
+  {
+    "id": 1531,
+    "name": "Coacción: Nayos"
+  },
+  {
+    "id": 1532,
+    "name": "Mano forzada: Nyedra"
+  },
+  {
+    "id": 1533,
+    "name": "Marcha de Marearrasa: Coliseo del Rey de Medianoche"
+  },
+  {
+    "id": 1534,
+    "name": "El Consejo de Guerra: campamento del Resguardo Astral"
+  },
+  {
+    "id": 1535,
+    "name": "Marcha de Marearrasa: inmediaciones de Nyedra"
+  },
+  {
+    "id": 1536,
+    "name": "Medidas desesperadas: vivac avanzado"
+  },
+  {
+    "id": 1537,
+    "name": "Soberana de Nayos: torre del brujo"
+  },
+  {
+    "id": 1538,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1539,
+    "name": "Última hora: Ciudadela de Zakiros"
+  },
+  {
+    "id": 1540,
+    "name": "Medidas desesperadas: vivac avanzado"
+  },
+  {
+    "id": 1541,
+    "name": "Azote doble: Caída"
+  },
+  {
+    "id": 1542,
+    "name": "Buscando el equilibrio: Resplandor del Fuego"
+  },
+  {
+    "id": 1543,
+    "name": "Investigación de titanes"
+  },
+  {
+    "id": 1544,
+    "name": "Azote doble: Resplandor del Fuego"
+  },
+  {
+    "id": 1545,
+    "name": "Buscando el equilibrio: Cráter Sanguino"
+  },
+  {
+    "id": 1546,
+    "name": "Hogar, dulce hogar: Resplandor del Fuego"
+  },
+  {
+    "id": 1547,
+    "name": "Tristeza entre estas paredes: Guarida de la Cosecha"
+  },
+  {
+    "id": 1549,
+    "name": "Desaparición en plena acción: Lodazal de la Bruma"
+  },
+  {
+    "id": 1550,
+    "name": "Costas Bajas"
+  },
+  {
+    "id": 1551,
+    "name": "La Alianza Tyriana: Cuartel general de la Iniciativa"
+  },
+  {
+    "id": 1552,
+    "name": "Contra el muro: Manantiales Sulfurosos"
+  },
+  {
+    "id": 1553,
+    "name": "Tristeza entre estas paredes: torre del brujo"
+  },
+  {
+    "id": 1554,
+    "name": "Janthir Syntri"
+  },
+  {
+    "id": 1555,
+    "name": "Forasteros entre tierras: Cuenca Infecta"
+  },
+  {
+    "id": 1556,
+    "name": "Territorio desconocido: Campamento Luna"
+  },
+  {
+    "id": 1557,
+    "name": "Hogar, dulce hogar: Heredad abandonada"
+  },
+  {
+    "id": 1558,
+    "name": "Resplandor del Fuego"
+  },
+  {
+    "id": 1559,
+    "name": "Contra el muro: Resplandor del Fuego"
+  },
+  {
+    "id": 1560,
+    "name": "Forasteros entre tierras: Cuartel general de la Iniciativa"
+  },
+  {
+    "id": 1561,
+    "name": "Callejones de Sunjiang"
+  },
+  {
+    "id": 1562,
+    "name": "Convergencia: Monte Balrior (escuadrón privado)"
+  },
+  {
+    "id": 1563,
+    "name": "Prueba y error: La torre del brujo"
+  },
+  {
+    "id": 1564,
+    "name": "Monte Balrior"
+  },
+  {
+    "id": 1565,
+    "name": "La víspera del combate: Guarida de la Cosecha"
+  },
+  {
+    "id": 1567,
+    "name": "La cima del Balrior: Guarida de la Cosecha"
+  },
+  {
+    "id": 1568,
+    "name": "Prueba y error: Janthir Syntri"
+  },
+  {
+    "id": 1569,
+    "name": "Prueba y error: Priorato de Durmand"
+  },
+  {
+    "id": 1570,
+    "name": "Cámara de la Niebla"
+  },
+  {
+    "id": 1571,
+    "name": "Convergencia: Monte Balrior (pública)"
+  },
+  {
+    "id": 1572,
+    "name": "La cima del Balrior: Monte Balrior"
+  },
+  {
+    "id": 1573,
+    "name": "La tristeza de Mabon: afueras de Bava Nisos"
+  },
+  {
+    "id": 1574,
+    "name": "Bava Nisos"
+  },
+  {
+    "id": 1575,
+    "name": "Yermos de Pavesas de Niebla"
+  },
+  {
+    "id": 1577,
+    "name": "Un legado maldito: Lago Dorado"
+  },
+  {
+    "id": 1578,
+    "name": "Un legado maldito: zona de preparación de la Alianza"
+  },
+  {
+    "id": 1579,
+    "name": "Hacia el corazón del Valle de las Sombras: Valle de la Agonía"
+  },
+  {
+    "id": 1580,
+    "name": "Hacia el corazón del Valle de las Sombras: zona de preparación de la Alianza"
+  },
+  {
+    "id": 1582,
+    "name": "Una tarea titánica: corazón de Saevus"
+  },
+  {
+    "id": 1583,
+    "name": "El precio de la salvación: Fundición de las Creaciones Fallidas"
+  },
+  {
+    "id": 1584,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1585,
+    "name": "El precio de la salvación: corazón de Saevus"
+  },
+  {
+    "id": 1586,
+    "name": "Entrada forzada: afueras de Bava Nisos"
+  },
+  {
+    "id": 1587,
+    "name": "Entrada forzada: Bava Nisos"
+  },
+  {
+    "id": 1588,
+    "name": "El precio de la salvación: Cuartel General de la Iniciativa"
+  },
+  {
+    "id": 1589,
+    "name": "Una tarea titánica: Bava Nisos"
+  },
+  {
+    "id": 1590,
+    "name": "Conferencia de incursión a fractales"
+  },
+  {
+    "id": 1591,
+    "name": "Bajo el arbolado: vivac de apoyo"
+  },
+  {
+    "id": 1592,
+    "name": "Senda de la divinidad: Arenas Aéreas"
+  },
+  {
+    "id": 1593,
+    "name": "Bosquezuelo Estelar"
+  },
+  {
+    "id": 1594,
+    "name": "Senda de la divinidad: Claustro de las Estrellas"
+  },
+  {
+    "id": 1595,
+    "name": "Litoral del Naufragio"
+  },
+  {
+    "id": 1596,
+    "name": "Isla Comosus"
+  },
+  {
+    "id": 1597,
+    "name": "Gats-tora"
+  },
+  {
+    "id": 1598,
+    "name": "Partidas no programadas: Autoridad Portuaria de Rata Sum"
+  },
+  {
+    "id": 1599,
+    "name": "Partidas no programadas: El Océano Interminable"
+  },
+  {
+    "id": 1600,
+    "name": "Tanteando en la oscuridad: Basílica Perdida"
+  },
+  {
+    "id": 1602,
+    "name": "Modo ladino: Puerto del Sagrario"
+  },
+  {
+    "id": 1603,
+    "name": "Ojos, oídos y brazos: Cala del Enigma"
+  },
+  {
+    "id": 1604,
+    "name": "Senda de la divinidad: Espesura Frondosa"
+  },
+  {
+    "id": 1605,
+    "name": "Verdades desveladas: Claros Custodiados"
+  },
+  {
+    "id": 1606,
+    "name": "Bajo el arbolado: Complejo de mando"
+  },
+  {
+    "id": 1607,
+    "name": "Ruinas del viejo mundo: Riscos Indómitos"
+  },
+  {
+    "id": 1608,
+    "name": "Partidas no programadas: Litoral del Naufragio"
+  },
+  {
+    "id": 1609,
+    "name": "Claro del Guardián"
+  },
+  {
+    "id": 1611,
+    "name": "Laboratorio CAS-U-5"
+  },
+  {
+    "id": 1613,
+    "name": "En el umbral: campamento"
+  },
+  {
+    "id": 1614,
+    "name": "En el umbral: campamento"
+  },
+  {
+    "id": 1616,
+    "name": "Una estrategia audaz: campamento de la Alianza"
+  },
+  {
+    "id": 1617,
+    "name": "Al alcance de tu mano: Territorios Rituales"
+  },
+  {
+    "id": 1618,
+    "name": "Una estrategia audaz: Supra Fortis"
+  },
+  {
+    "id": 1619,
+    "name": "Divitium nava: Territorios Rituales"
+  },
+  {
+    "id": 1620,
+    "name": "Así está escrito: Santuario de la Senescal"
+  },
+  {
+    "id": 1621,
+    "name": "Divitium nava: Territorios Rituales"
+  },
+  {
+    "id": 1622,
+    "name": "Jardín de la Eternidad"
+  },
+  {
+    "id": 1623,
+    "name": "Divitium nava: Umbral Empíreo"
+  },
+  {
+    "id": 1624,
+    "name": "Divitium nava: forja de los videntes"
+  },
+  {
+    "id": 1625,
+    "name": "Miau-Nthir"
+  },
+  {
+    "id": 1626,
+    "name": "Todo lo que somos: Aldea de Shaemoor"
+  },
+  {
+    "id": 1627,
+    "name": "Convergencia: Nexo de Eternidad"
+  },
+  {
+    "id": 1628,
+    "name": "Así sea: Nexo de Eternidad"
+  },
+  {
+    "id": 1629,
+    "name": "Convergencia: Nexo de Eternidad (escuadrón privado)"
+  },
+  {
+    "id": 1630,
+    "name": "La carga de la visión: Adytum del Decano"
+  },
+  {
+    "id": 1631,
+    "name": "Bajo presión: Depósito de Artillería"
+  },
+  {
+    "id": 1632,
+    "name": "Todo lo que somos: Gran Biblioteca de Amnytas"
+  },
+  {
+    "id": 1633,
+    "name": "Hondonadas del Manantial de Ley"
+  },
+  {
+    "id": 1634,
+    "name": "La carga de la visión: Trono solitario"
+  },
+  {
+    "id": 1636,
+    "name": "Fractales de la Niebla"
+  },
+  {
+    "id": 1637,
+    "name": "Todo lo que somos: Soren Draa"
+  },
+  {
+    "id": 1638,
+    "name": "Nexo de Eternidad"
+  },
+  {
+    "id": 1639,
+    "name": "Revelaciones más profundas: El Consejo Arcano"
+  },
+  {
+    "id": 1640,
+    "name": "Revelaciones más profundas: Hondonadas del Manantial de Ley"
+  },
+  {
+    "id": 1641,
+    "name": "Todo lo que somos: Aldea de Astoria"
+  },
+  {
+    "id": 1642,
+    "name": "Todo lo que somos: Taberna Canach"
+  },
+  {
+    "id": 1643,
+    "name": "Todo lo que somos: Puerta del Señor de la Nieve"
+  },
+  {
+    "id": 1644,
+    "name": "Ondas en el estanque: Santuario Enraizado"
+  },
+  {
+    "id": 1645,
+    "name": "Todo lo que somos: Rata Sum"
+  },
+  {
+    "id": 1646,
+    "name": "Ondas en el estanque: Sala de Asamblea"
+  },
+  {
+    "id": 1647,
+    "name": "Todo lo que somos: Aldea de Paraje del Humo"
+  },
+  {
+    "id": 1648,
+    "name": "Revelaciones más profundas: Templo del Manto Bendito"
+  }
+]
